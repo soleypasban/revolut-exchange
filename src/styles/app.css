@@ -12,6 +12,13 @@
     background: #ffffff;
 }
 
+.r-view {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
 .noselect {
     cursor: default;
     -webkit-touch-callout: none;

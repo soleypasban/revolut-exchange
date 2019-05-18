@@ -22,7 +22,7 @@ const LoginView = ({ history }) => {
     }
 
     return (
-        <div className='r-login-view'>
+        <div className='r-view'>
             <img className='r-login-logo' src={revolutLogo} alt='' />
             <LoginPinCircles pass={pass} />
             <LoginKeyboard onClick={onClick} />

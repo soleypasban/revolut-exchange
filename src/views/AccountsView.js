@@ -6,7 +6,7 @@ const AccountsView = ({ history }) => {
     const [currency, setCurrency] = useState('eur');
 
     return (
-        <div className='r-accounts-view'>
+        <div className='r-view'>
             <BalancesActionController currency={currency} history={history} />
             <TransactionsListController />
         </div>

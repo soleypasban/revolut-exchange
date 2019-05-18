@@ -3,7 +3,7 @@ import { BalancesActionController } from '../controllers/BalancesActionControlle
 import { TransactionsListController } from '../controllers/TransactionsListController';
 
 const ExchangeView = props =>
-    <div className='r-accounts-view'>
+    <div className='r-view'>
         ExchangeView
     </div>
 
