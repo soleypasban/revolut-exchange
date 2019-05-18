@@ -1,0 +1,26 @@
+.r-round-button-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    cursor: default;
+}
+
+.r-round-button-icon {
+    display: inline-block;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    border-radius: 50%;
+    color: white;
+    background: var(--blue);
+    box-sizing: content-box;
+    cursor: pointer;
+}
+
+.r-round-button-text {
+    color: var(--blue);
+    font-size: 1.4rem;
+    font-weight: 450;
+}

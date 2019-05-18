@@ -1,9 +1,10 @@
 import React from 'react';
+import { Accounts } from './views/Accounts';
 
 function App() {
   return (
-    <div className="App">
-      Revolut
+    <div className="r-app">
+      <Accounts />
     </div>
   );
 }

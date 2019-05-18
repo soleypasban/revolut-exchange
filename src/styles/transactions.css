@@ -1,0 +1,48 @@
+.r-transaction-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    cursor: default;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #fefefe;
+}
+
+.r-transaction-info {
+    display: flex;
+    align-items: center;
+}
+
+.r-transaction-img {
+    margin-right: 1rem;
+    background: var(--pink);
+    padding: 5px;
+    border-radius: 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.r-transaction-img>img {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.r-transaction-text {
+    font-size: 1.8rem;
+    font-weight: 550;
+    display: flex;
+    flex-direction: column;
+}
+
+.r-transaction-date {
+    font-size: 1.5rem;
+    opacity: 0.25;
+}
+
+.r-transaction-amount {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
