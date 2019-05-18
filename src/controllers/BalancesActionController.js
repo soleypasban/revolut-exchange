@@ -1,14 +1,31 @@
 import React from 'react';
 import { RoundButtons, BalanceValue } from '../components/Accounts';
 
-const BalancesActionController = ({ history, currency }) =>
-    <div className='r-accounts-balances'>
-        <BalanceValue currency={currency} />
-        <div className='r-accounts-actions'>
-            <RoundButtons icon='plus' label='Add money' onClick={() => history.push('/add')} />
-            <RoundButtons icon='exchange' label='Exchange' onClick={() => history.push('/exchange')} />
-            <RoundButtons icon='details' label='Details' onClick={() => alert('details')} />
+const BalancesActionController = ({ history, currency }) => {
+
+    const onExchangeClicked = () => {
+        const to = (currency === 'usd') ? 'eur' : 'usd'
+        history.push(`/exchange/${currency}/${to}`)
+    }
+
+    const onAddMoneyClicked = () => {
+        history.push(`/add/${currency}`)
+    }
+
+    const onDetailsClicked = () => {
+        history.push(`/details/${currency}`)
+    }
+
+    return (
+        <div className='r-accounts-balances'>
+            <BalanceValue currency={currency} />
+            <div className='r-accounts-actions'>
+                <RoundButtons icon='plus' label='Add money' onClick={onAddMoneyClicked} />
+                <RoundButtons icon='exchange' label='Exchange' onClick={onExchangeClicked} />
+                <RoundButtons icon='details' label='Details' onClick={onDetailsClicked} />
+            </div>
         </div>
-    </div>
+    )
+}
 
 export { BalancesActionController };
