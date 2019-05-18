@@ -1,10 +1,12 @@
 import React from 'react';
-import { BalancesActionController } from '../controllers/BalancesActionController';
-import { TransactionsListController } from '../controllers/TransactionsListController';
+import { PageHeader } from '../components/PageHeader';
 
-const ExchangeView = props =>
-    <div className='r-view'>
-        ExchangeView
-    </div>
+const ExchangeView = ({ match, history }) => {
+    return (
+        <div className='r-view'>
+            <PageHeader label='Exchange' onClose={() => history.push('/accounts')} />
+        </div>
+    )
+}
 
 export { ExchangeView };

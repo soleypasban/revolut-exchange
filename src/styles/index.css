@@ -23,6 +23,7 @@ body {
 @import 'round-buttons.css';
 @import 'balance.css';
 @import 'transactions.css';
+@import 'page-header.css';
 
 @import 'login.css';
 @import 'accounts.css';

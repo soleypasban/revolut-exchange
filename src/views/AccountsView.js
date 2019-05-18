@@ -12,4 +12,5 @@ const AccountsView = ({ history }) => {
         </div>
     )
 }
+
 export { AccountsView };

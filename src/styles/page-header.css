@@ -1,0 +1,33 @@
+.r-page-header {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.r-page-title {
+    display: flex;
+    align-items: center;
+}
+
+.r-page-header-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    margin-right: 2rem;
+    padding: 1.25rem;
+    box-sizing: content-box;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.r-page-header-icon:hover{
+    background: #f3f3f3;
+}
+
+.r-page-header-text {
+    font-size: 2rem;
+    font-weight: 600;
+}
