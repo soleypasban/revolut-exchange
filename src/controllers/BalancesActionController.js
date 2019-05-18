@@ -1,6 +1,5 @@
 import React from 'react';
-import { RoundButtons } from '../components/RoundButtons';
-import { BalanceValue } from '../components/BalanceValue';
+import { RoundButtons, BalanceValue } from '../components/Accounts';
 
 const BalancesActionController = props =>
     <div className='r-accounts-balances'>

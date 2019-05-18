@@ -1,11 +1,10 @@
 import React from 'react';
-import { CurrencySign } from '../dictionary/Currencies'
-import imgCoins from '../assets/coins.png'
+import { CurrencySign } from '../../dictionary/Currencies'
+import imgCoins from '../../assets/coins.png'
 
 const ImageIcons = {
     coins: <img src={imgCoins} alt='' />
 }
-
 
 const Transaction = props =>
     <div className='r-transaction-wrapper'>

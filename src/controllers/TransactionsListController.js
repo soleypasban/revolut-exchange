@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transaction } from '../components/Transaction';
+import { Transaction } from '../components/Accounts';
 
 const TransactionsListController = props =>
     <div className='r-accounts-transactions'>

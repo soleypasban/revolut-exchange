@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrencySign, CurrencyName } from '../dictionary/Currencies'
+import { CurrencySign, CurrencyName } from '../../dictionary/Currencies'
 
 const value = {
     round: 20,

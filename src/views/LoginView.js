@@ -1,34 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import revolutLogo from '../assets/revolutLogo.png'
-import { Forgot, Enter, KeyLabels } from '../dictionary/LoginKeyPad'
+import { Forgot, Enter } from '../dictionary/LoginKeyPad'
+import { LoginPinCircles, LoginKeyboard } from '../components/Logins';
 
-const onClick = label => {
-    if (label === Enter) {
-        alert('Enter')
-    } else if (label === Forgot) {
-        alert('Forgot')
-    } else {
-        alert(Number(label))
+const LoginView = ({ history }) => {
+
+    const [pass, setPasscode] = useState('');
+
+    const onClick = label => {
+        if (label === Enter) {
+            if (pass.length === 4) {
+                history.push('/accounts')
+            } else {
+                setPasscode('')
+            }
+        } else if (label === Forgot) {
+            alert('Forgot')
+        } else {
+            setPasscode(`${pass}${label}`)
+        }
     }
+
+    return (
+        <div className='r-login-view'>
+            <img className='r-login-logo' src={revolutLogo} alt='' />
+            <LoginPinCircles pass={pass} />
+            <LoginKeyboard onClick={onClick} />
+        </div>
+    )
 }
 
-const LoginView = props =>
-    <div className='r-login-view'>
-        <img className='r-login-logo' src={revolutLogo} alt='' />
-        <div className='r-login-pass'>
-            <span className='r-login-pass-circle r-login-pass-circle-entered'></span>
-            <span className='r-login-pass-circle'></span>
-            <span className='r-login-pass-circle'></span>
-            <span className='r-login-pass-circle'></span>
-        </div>
-        <div className='r-login-keypad-wrapper'>
-            {KeyLabels.map((label, key) => <Keypad {...{ key, label, onClick }} />)}
-        </div>
-    </div>
-
-const Keypad = ({ label, onClick }) =>
-    <div className='r-login-keypad-button' onClick={() => onClick(label)}>
-        {label}
-    </div>
 
 export { LoginView };

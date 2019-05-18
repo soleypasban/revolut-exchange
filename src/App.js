@@ -1,17 +1,16 @@
 import React from 'react';
 import { AccountsView } from './views/AccountsView';
 import { LoginView } from './views/LoginView';
-
-const LOGIN_VIEW = 'LOGIN_VIEW'
-const ACCOUNTS_VIEW = 'ACCOUNTS_VIEW'
-
-const activeView = ACCOUNTS_VIEW
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import history from './dictionary/History';
 
 function App() {
   return (
-    <div className="r-app">
-      {(activeView === ACCOUNTS_VIEW) && <AccountsView />}
-      {(activeView === LOGIN_VIEW) && <LoginView />}
+    <div className="r-app noselect">
+      <Router history={history}>
+        <Route path="/" exact component={LoginView} />
+        <Route path="/accounts" exact component={AccountsView} />
+      </Router>
     </div>
   );
 }

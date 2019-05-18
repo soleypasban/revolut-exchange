@@ -22,6 +22,7 @@
     margin: 0 2rem;
     border-radius: 50%;
     opacity: 0.3;
+    transition: all 0.25s ease;
 }
 
 .r-login-pass-circle-entered{
