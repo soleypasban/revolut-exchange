@@ -1,10 +1,17 @@
 import React from 'react';
-import { Accounts } from './views/Accounts';
+import { AccountsView } from './views/AccountsView';
+import { LoginView } from './views/LoginView';
+
+const LOGIN_VIEW = 'LOGIN_VIEW'
+const ACCOUNTS_VIEW = 'ACCOUNTS_VIEW'
+
+const activeView = LOGIN_VIEW
 
 function App() {
   return (
     <div className="r-app">
-      <Accounts />
+      {(activeView === ACCOUNTS_VIEW) && <AccountsView />}
+      {(activeView === LOGIN_VIEW) && <LoginView />}
     </div>
   );
 }

@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 html,
 body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 10px;
@@ -14,13 +14,15 @@ body {
     background: #000000;
 }
 
-*{
-  box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
 @import 'theme.css';
 @import 'app.css';
 @import 'round-buttons.css';
 @import 'balance.css';
-@import 'accounts.css';
 @import 'transactions.css';
+
+@import 'login.css';
+@import 'accounts.css';
