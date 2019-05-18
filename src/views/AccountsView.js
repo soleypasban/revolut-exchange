@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BalancesActionController } from '../controllers/BalancesActionController';
 import { TransactionsListController } from '../controllers/TransactionsListController';
 
-const AccountsView = props =>
-    <div className='r-accounts-view'>
-        <BalancesActionController />
-        <TransactionsListController />
-    </div>
+const AccountsView = ({ history }) => {
+    const [currency, setCurrency] = useState('eur');
 
+    return (
+        <div className='r-accounts-view'>
+            <BalancesActionController currency={currency} history={history} />
+            <TransactionsListController />
+        </div>
+    )
+}
 export { AccountsView };
