@@ -26,6 +26,7 @@ body {
 @import 'transactions.css';
 @import 'page-header.css';
 @import 'currency-input.css';
+@import 'rate-box.css';
 
 @import 'login.css';
 @import 'accounts.css';

@@ -2,6 +2,7 @@ import React from 'react';
 import { PageHeader } from '../components/PageHeader';
 import { ActionButton } from '../components/ActionButton';
 import { CurrencyInput } from '../components/CurrencyInput';
+import { RateBox } from '../components/RateBox';
 
 const ExchangeView = ({ match, history }) => {
     console.log(match)
@@ -14,7 +15,11 @@ const ExchangeView = ({ match, history }) => {
                 </div>
             </div>
             <div className='r-exchange-bottom-wrapper'>
-                <div className='r-exchange-rate-container'>a</div>
+                <div className='r-exchange-rate-container'>
+                    1
+                    <RateBox from={match.params.from} to={match.params.to} rate={1.1524} />
+                    <span />
+                </div>
                 <div className='r-exchange-to-container'>
                     <CurrencyInput currency={match.params.to} sign='+' balance={0.28} />
                 </div>

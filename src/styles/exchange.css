@@ -13,11 +13,11 @@
 }
 
 .r-exchange-rate-container {
-    background: red;
     margin: -2rem 3rem 0;
     height: 4rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .r-exchange-button-container {
