@@ -4,6 +4,7 @@ import history from './dictionary/History';
 import { AccountsView } from './views/AccountsView';
 import { LoginView } from './views/LoginView';
 import { ExchangeView } from './views/ExchangeView';
+import { DetailsView } from './views/DetailsView';
 import { AddMoneyView } from './views/AddMoneyView';
 
 // import { getEuropa } from './server';
@@ -15,6 +16,7 @@ const App = ({ location }) =>
       <Route path="/" exact component={LoginView} />
       <Route path="/accounts" component={AccountsView} />
       <Route path="/exchange" component={ExchangeView} />
+      <Route path="/details" component={DetailsView} />
       <Route path="/add" component={AddMoneyView} />
     </Router>
   </div>
