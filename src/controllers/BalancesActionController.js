@@ -4,7 +4,7 @@ import { RoundButtons, BalanceValue } from '../components/Accounts';
 const BalancesActionController = ({ history, currency }) => {
 
     const onExchangeClicked = () => {
-        const to = (currency === 'usd') ? 'eur' : 'usd'
+        const to = (currency === 'USD') ? 'EUR' : 'USD'
         history.push(`/exchange/${currency}/${to}`)
     }
 

@@ -23,8 +23,8 @@ const ExchangeView = ({ match, history }) => {
     }
 
     const balances = {
-        eur: 15.25,
-        usd: 20.11
+       EUR: 15.25,
+       USD: 20.11
     }
 
     return (

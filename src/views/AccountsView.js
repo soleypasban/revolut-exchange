@@ -3,11 +3,11 @@ import { BalancesActionController } from '../controllers/BalancesActionControlle
 import { TransactionsListController } from '../controllers/TransactionsListController';
 
 const AccountsView = ({ history }) => {
-    const [currency, setCurrency] = useState('eur');
+    const [currency, setCurrency] = useState('EUR');
 
     return (
         <div className='r-view'>
-            <BalancesActionController currency={currency} history={history} />
+            <BalancesActionController  currency={currency} history={history} />
             <TransactionsListController />
         </div>
     )

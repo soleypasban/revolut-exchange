@@ -1,19 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { separateNumberParts } from '../helpers/separateNumberParts';
 import { CurrencySign, CurrencyName } from '../../dictionary/Currencies'
 
-const value = {
-    round: 20,
-    decimal: 59
-}
-
-const BalanceValue = props => {
-    const decimalPart = value.decimal && <span className='r-balance-value-decimal'>.{value.decimal}</span>
+let BalanceValue = ({ amount, currency }) => {
+    const decimalsPart = amount.decimals && <span className='r-balance-value-decimal'>{amount.decimals}</span>
     return (
         <div className='r-balance-wrapper'>
-            <span className='r-balance-value'>{CurrencySign[props.currency]}{value.round}{decimalPart}</span>
-            <span className='r-balance-currency-name'>{props.currency.toUpperCase()} - {CurrencyName[props.currency]}</span>
+            <span className='r-balance-value'>{CurrencySign[currency]}{amount.int}{decimalsPart}</span>
+            <span className='r-balance-currency-name'>{currency} - {CurrencyName[currency]}</span>
         </div>
     )
 }
+
+const mapStateToProps = (state, ownProps) => {
+    const amount = separateNumberParts(state.balance[ownProps.currency] || 0)
+    return { amount }
+}
+
+BalanceValue = connect(mapStateToProps)(BalanceValue)
 
 export { BalanceValue };

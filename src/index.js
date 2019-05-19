@@ -1,22 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import './styles/index.css';
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { store } from './store'
 import { Provider } from 'react-redux'
-import { reducer as reduxFormReducer } from 'redux-form';
+import * as serviceWorker from './serviceWorker';
 
-const rootReducer = combineReducers({
-    form: reduxFormReducer
-})
-
-const logger = store => next => action => {
-    let result = next(action)
-    return result
-}
-
-const store = createStore(rootReducer, applyMiddleware(logger))
+import './styles/index.css';
 
 ReactDOM.render(
     <Provider store={store}>
