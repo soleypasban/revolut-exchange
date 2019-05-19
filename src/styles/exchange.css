@@ -1,0 +1,24 @@
+.r-exchange-top-wrapper {
+    background: #ff0;
+    padding-bottom: 3rem;
+    width: 100%;
+}
+
+.r-exchange-bottom-wrapper {
+    background: #f3f3f3;
+    width: 100%;
+    flex: 1;
+}
+
+.r-exchange-rate-container {
+    background: red;
+    margin: -2rem 3rem 0;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.r-exchange-button-container {
+    background: blue;
+    margin: 3rem 4rem;
+}
