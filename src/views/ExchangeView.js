@@ -1,5 +1,6 @@
 import React from 'react';
 import { PageHeader } from '../components/PageHeader';
+import { ActionButton } from '../components/ActionButton';
 
 const ExchangeView = ({ match, history }) => {
     return (
@@ -13,7 +14,9 @@ const ExchangeView = ({ match, history }) => {
             <div className='r-exchange-bottom-wrapper'>
                 <div className='r-exchange-rate-container'>a</div>
                 <div className='r-exchange-to-container'>a</div>
-                <div className='r-exchange-button-container'>a</div>
+                <div className='r-exchange-button-container'>
+                    <ActionButton label='Exchange' />
+                </div>
             </div>
         </div>
     )
