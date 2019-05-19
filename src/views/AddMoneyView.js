@@ -4,12 +4,24 @@ import { PageHeader } from '../components/PageHeader';
 import { ActionButton } from '../components/ActionButton';
 import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { addMoney } from '../actions/balance'
+import { logTransaction } from '../actions/transactions'
 
 let AddMoneyView = ({ dispatch, history, currentBalance, currency }) => {
     const [amount, setAmount] = useState(0);
 
     const addMoneyAndGoBack = () => {
+        const transaction = {
+            sign: '+',
+            amount,
+            currency,
+            icon: 'transaction-add',
+            reason: 'Added to balance',
+            date: 'Today',
+            info: ''
+        }
         dispatch(addMoney(currency, amount))
+        dispatch(logTransaction(transaction))
+        
         history.push('/accounts')
     }
 

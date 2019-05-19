@@ -6,7 +6,9 @@ import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { RateBox } from '../components/RateBox';
 import { SwapRate } from '../components/SwapRate';
 import { removeMoney, addMoney } from '../actions/balance';
+import { logTransaction } from '../actions/transactions'
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
+import { CurrencySign } from '../dictionary/Currencies'
 
 let ExchangeView = ({ exchange, balances, exchangeRate, history, dispatch }) => {
 
@@ -33,8 +35,32 @@ let ExchangeView = ({ exchange, balances, exchangeRate, history, dispatch }) => 
     const notEnoughBalance = (Number(balances[convert.from]) < Number(Math.abs(amounts.from)))
 
     const exchangeMoney = () => {
+        const transactionFrom = {
+            sign: '-',
+            amount: amounts.from,
+            currency: convert.from,
+            icon: 'transaction-removed',
+            reason: `Exchanged to ${convert.to}`,
+            date: 'Today',
+            info: `+${CurrencySign[convert.to]}${amounts.from}`
+        }
+
+        const transactionTo = {
+            sign: '+',
+            amount: amounts.to,
+            currency: convert.to,
+            icon: 'transaction-add',
+            reason: `Exchanged to ${convert.from}`,
+            date: 'Today',
+            info: `-${CurrencySign[convert.from]}${amounts.to}`
+        }
+
+        dispatch(logTransaction(transactionFrom))
+        dispatch(logTransaction(transactionTo))
+
         dispatch(removeMoney(convert.from, amounts.from))
         dispatch(addMoney(convert.to, amounts.to))
+
         history.push('/accounts')
     }
 
