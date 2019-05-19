@@ -1,13 +1,17 @@
 import React from 'react';
 
 export const CurrencySign = {
-    EUR: <span>&euro;</span>,
-    USD: <span>$</span>,
-    GBP: <span>&pound;</span>
+    EUR: '€',
+    USD: '$',
+    GBP: '£',
+    TRY: '₺',
+    INR: '₹'
 }
 
 export const CurrencyName = {
     EUR: 'Euro',
     USD: 'Dollar',
-    GBP: 'Pound'
+    GBP: 'Pound',
+    TRY: 'Turkey Lira',
+    INR: 'Indian Rupees'
 }
