@@ -1,13 +1,13 @@
-.r-login-logo{
+.r-login-logo {
     margin: 3rem 0;
     width: 16rem;
 }
 
-.r-login-pass{
+.r-login-pass {
     margin-bottom: 6rem;
 }
 
-.r-login-pass-circle{
+.r-login-pass-circle {
     width: 1.5rem;
     height: 1.5rem;
     display: inline-block;
@@ -18,7 +18,7 @@
     transition: all 0.25s ease;
 }
 
-.r-login-pass-circle-entered{
+.r-login-pass-circle-entered {
     opacity: 1;
 }
 
@@ -34,10 +34,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
-    margin: 0 1.5rem;
+    margin: 0 2rem;
     font-size: 2.8rem;
     font-weight: 500;
     cursor: pointer;
@@ -45,6 +45,19 @@
     transition: all 0.25s ease;
 }
 
-.r-login-keypad-button:hover{
+.r-login-keypad-button:hover {
     background: #f7f7f7;
+}
+
+.r-login-keypad-forgot {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.r-login-keypad-erase>svg {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

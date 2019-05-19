@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import revolutLogo from '../assets/revolutLogo.png'
-import { Forgot, Enter } from '../dictionary/LoginKeyPad'
+import { FORGOT, ERASE } from '../dictionary/LoginKeyPad'
 import { LoginPinCircles, LoginKeyboard } from '../components/Logins';
 
 const LoginView = ({ history }) => {
@@ -8,16 +8,16 @@ const LoginView = ({ history }) => {
     const [pass, setPasscode] = useState('');
 
     const onClick = label => {
-        if (label === Enter) {
-            if (pass.length === 4) {
-                history.push('/accounts')
-            } else {
-                setPasscode('')
-            }
-        } else if (label === Forgot) {
-            alert('Forgot')
+        if (label === ERASE) {
+            setPasscode('')
+        } else if (label === FORGOT) {
+            alert('FORGOT')
         } else {
-            setPasscode(`${pass}${label}`)
+            const newPasscode = `${pass}${label}`
+            setPasscode(newPasscode)
+            if (newPasscode.length === 4) {
+                history.push('/accounts')
+            }
         }
     }
 
@@ -25,7 +25,7 @@ const LoginView = ({ history }) => {
         <div className='r-view'>
             <img className='r-login-logo' src={revolutLogo} alt='' />
             <LoginPinCircles pass={pass} />
-            <LoginKeyboard onClick={onClick} />
+            <LoginKeyboard isErasable={pass.length} onClick={onClick} />
         </div>
     )
 }
