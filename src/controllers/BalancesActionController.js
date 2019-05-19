@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { RoundButtons, BalanceValue } from '../components/Accounts';
+import { separateNumberParts } from '../components/helpers/separateNumberParts';
 
-const BalancesActionController = ({ history, currency }) => {
+let BalancesActionController = ({ history, currency, amount }) => {
 
     const onExchangeClicked = () => {
         const to = (currency === 'USD') ? 'EUR' : 'USD'
@@ -18,7 +20,7 @@ const BalancesActionController = ({ history, currency }) => {
 
     return (
         <div className='r-accounts-balances'>
-            <BalanceValue currency={currency} />
+            <BalanceValue amount={amount} currency={currency} />
             <div className='r-accounts-actions'>
                 <RoundButtons icon='plus' label='Add money' onClick={onAddMoneyClicked} />
                 <RoundButtons icon='exchange' label='Exchange' onClick={onExchangeClicked} />
@@ -27,5 +29,13 @@ const BalancesActionController = ({ history, currency }) => {
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    const currency = state.settings.currencies.accounts
+    const amount = separateNumberParts(state.balance[currency] || 0)
+    return { amount, currency }
+}
+
+BalancesActionController = connect(mapStateToProps)(BalancesActionController)
 
 export { BalancesActionController };

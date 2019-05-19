@@ -1,11 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { balance } from './reducers/balance';
+import { settings } from './reducers/settings';
 import { reducer as reduxFormReducer } from 'redux-form';
 // import { VanloMiddleware, QueueMiddleware, PrepareMiddleware, SSDataMiddleware, LoginMiddleware, ConnectorMiddleware, SubscribeMiddleware, PrintMiddleware } from './middlewares';
 
 const rootReducer = combineReducers({
     form: reduxFormReducer,
-    balance
+    balance,
+    settings
 })
 
 const logger = store => next => action => {
