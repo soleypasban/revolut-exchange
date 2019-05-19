@@ -32,17 +32,23 @@
 
 .r-transaction-text {
     font-size: 1.7rem;
-    font-weight: 550;
+    font-weight: 600;
     display: flex;
     flex-direction: column;
 }
 
-.r-transaction-date {
+.r-transaction-date,
+.r-transaction-extra-info {
     font-size: 1.4rem;
     opacity: 0.25;
+    display: inline-block;
 }
 
 .r-transaction-amount {
     font-size: 1.7rem;
-    font-weight: 500;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
 }

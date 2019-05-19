@@ -15,7 +15,10 @@ const Transaction = props =>
                 <span className='r-transaction-date'>2019/01/02 10:12</span>
             </div>
         </div>
-        <span className='r-transaction-amount'>{CurrencySign[props.currency]}{props.amount}</span>
+        <span className='r-transaction-amount'>
+            <span>{props.sign}&nbsp;{CurrencySign[props.currency]}{props.amount}</span>
+            <span className='r-transaction-extra-info'>{props.extraInfo}</span>
+        </span>
     </div>
 
 export { Transaction };

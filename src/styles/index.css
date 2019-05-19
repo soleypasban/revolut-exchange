@@ -18,6 +18,22 @@ body {
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cccfdc;
+    border-radius: 10rem;
+    border: 2px solid #f7f8fa;
+}
+
+::-webkit-scrollbar-track {
+    background: #f7f8fa;
+    border-radius: 0;
+}
+
 @import 'theme.css';
 @import 'app.css';
 @import 'round-buttons.css';
