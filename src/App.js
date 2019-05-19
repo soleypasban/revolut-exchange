@@ -7,9 +7,6 @@ import { ExchangeView } from './views/ExchangeView';
 import { DetailsView } from './views/DetailsView';
 import { AddMoneyView } from './views/AddMoneyView';
 
-// import { getEuropa } from './server';
-// getEuropa(x => console.log(x))
-
 const App = ({ location }) =>
   <div className="r-app noselect">
     <Router history={history}>

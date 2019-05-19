@@ -12,11 +12,15 @@ import { CurrencySign } from '../dictionary/Currencies'
 import { CurrencySelector } from '../components/CurrencySelector';
 import { setActiveCurrencyTo } from '../actions/settings';
 
-let ExchangeView = ({ exchange, balance, exchangeRate, history, dispatch }) => {
+let ExchangeView = ({ exchange, balance, rates, history, dispatch }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
 
     const [amounts, setAmounts] = useState({ from: 0, to: 0 });
     const [convert, setConvert] = useState(exchange);
+
+    console.log(rates, Number(rates[convert.from]) , Number(rates[convert.to]))
+
+    const exchangeRate = rates ? (Number(rates[convert.from]) / Number(rates[convert.to])) : 1
 
     const onChangeCurrencyFrom = () => setShowSelectorFor({ type: 'FROM', selected: convert.from })
     const onChangeCurrencyTo = () => setShowSelectorFor({ type: 'TO', selected: convert.to })
@@ -120,10 +124,10 @@ let ExchangeView = ({ exchange, balance, exchangeRate, history, dispatch }) => {
 }
 
 const mapStateToProps = (state) => {
-    const exchangeRate = state.settings.exchangeRate || 1.5
+    const rates = state.settings.rates || {}
     const exchange = state.settings.currencies.exchange
     const balance = state.balance
-    return { exchange, balance, exchangeRate }
+    return { exchange, balance, rates }
 }
 
 ExchangeView = connect(mapStateToProps)(ExchangeView)

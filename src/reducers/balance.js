@@ -1,8 +1,8 @@
 import { ADD_MONEY, REMOVE_MONEY } from "../actions/balance";
 
 const initialState = {
-    USD: 11.11,
-    EUR: 12.12
+    USD: 5,
+    EUR: 75.49
 }
 
 export const balance = (state = initialState, action) => {

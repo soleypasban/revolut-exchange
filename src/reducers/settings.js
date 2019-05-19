@@ -1,4 +1,4 @@
-import { ACTIVE_CURRENCY, ACTIVE_EXHCANGES, ACTIVE_ADD_CURRENCY } from "../actions/settings";
+import { ACTIVE_CURRENCY, ACTIVE_EXHCANGES, ACTIVE_ADD_CURRENCY, UPDATE_RATES } from "../actions/settings";
 
 const initialState = {
     currencies: {
@@ -6,7 +6,8 @@ const initialState = {
         exchange: { from: 'EUR', to: 'USD' },
         add: 'EUR'
     },
-    exchangeRate: null
+    exchangeRate: null,
+    rates: null
 }
 
 export const settings = (state = initialState, action) => {
@@ -27,6 +28,9 @@ export const settings = (state = initialState, action) => {
             const currencies = state.currencies
             return { ...state, currencies: { ...currencies, add: payload } }
         }
+
+        case UPDATE_RATES:
+            return { ...state, rates: { ...payload, EUR: 1 } }
 
         default:
             return state;
