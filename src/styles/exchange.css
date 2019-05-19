@@ -1,5 +1,4 @@
 .r-exchange-top-wrapper {
-    background: #ff0;
     padding-bottom: 3rem;
     width: 100%;
 }
@@ -21,5 +20,6 @@
 }
 
 .r-exchange-button-container {
+    width: 100%;
     padding: 3rem 3rem;
 }

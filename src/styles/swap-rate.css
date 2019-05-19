@@ -1,20 +1,17 @@
-.r-rate-box-container{
-    font-size: 1.7rem;
-    font-weight: 600;
+.r-swap-rate-container{
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--blue);
     background: #ffffff;
+    width: 4.5rem;
     height: 4.5rem;
     border-radius: 5rem;
-    width: 19rem;
     border:2px solid #f3f3f3;
-    margin-left: -2rem;
+    cursor: pointer;
 }
 
-.r-rate-box-container>svg{
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-right: 1rem;
+.r-swap-rate-container>svg{
+    width: 1.75rem;
+    height: 1.75rem;
 }

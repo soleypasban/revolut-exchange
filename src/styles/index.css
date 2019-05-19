@@ -27,7 +27,9 @@ body {
 @import 'page-header.css';
 @import 'currency-input.css';
 @import 'rate-box.css';
+@import 'swap-rate.css';
 
 @import 'login.css';
 @import 'accounts.css';
 @import 'exchange.css';
+@import 'add-view.css';

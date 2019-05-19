@@ -1,0 +1,16 @@
+.r-add-top-wrapper {
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.r-add-bottom-wrapper {
+    background: #f3f3f3;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.r-add-button-container {
+    padding: 3rem 3rem;
+}

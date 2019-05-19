@@ -1,8 +1,8 @@
 import React from 'react';
 import { arrowLeft } from '../Icons'
 
-const FORGOT_VALUE = <span class='r-login-keypad-forgot'>Forgot?</span>
-const ERASE_VALUE = <span class='r-login-keypad-erase'>{arrowLeft}</span>
+const FORGOT_VALUE = <span className='r-login-keypad-forgot'>Forgot?</span>
+const ERASE_VALUE = <span className='r-login-keypad-erase'>{arrowLeft}</span>
 
 export const FORGOT = 'FORGOT'
 export const ERASE = 'ERASE'
