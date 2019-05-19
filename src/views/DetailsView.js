@@ -18,7 +18,7 @@ let DetailsView = ({ history, currency, amount }) => {
 
 const mapStateToProps = (state) => {
     const currency = state.settings.currencies.accounts
-    const amount = (state.balance[currency] || 0)
+    const amount = (state.balance[currency] || 0).toFixed(2)
     return { amount, currency }
 }
 

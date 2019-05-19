@@ -1,0 +1,29 @@
+.r-account-selector-wrapper {
+    margin: 1rem;
+}
+
+.r-account-selector-name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: inline-block;
+    margin: 0 0.25rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    cursor: pointer;
+    color: #bbbbbb;
+}
+
+.r-account-selector-name:hover {
+    color: #000000;
+    background: #fafafa;
+}
+
+.r-account-selector-sign {
+    margin-right: 0.25rem;
+}
+
+.r-account-selector-active {
+    color: #000000;
+    font-weight: 600;
+}

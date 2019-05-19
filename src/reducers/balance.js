@@ -11,12 +11,12 @@ export const balance = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_MONEY: {
-            const newAmount = Number(state[payload.currency]) + getValue(payload.amount)
+            const newAmount = Number(state[payload.currency] || 0) + getValue(payload.amount)
             return { ...state, [payload.currency]: newAmount }
         }
 
         case REMOVE_MONEY: {
-            const newAmount = Number(state[payload.currency]) - getValue(payload.amount)
+            const newAmount = Number(state[payload.currency] || 0) - getValue(payload.amount)
             return { ...state, [payload.currency]: newAmount }
         }
 
