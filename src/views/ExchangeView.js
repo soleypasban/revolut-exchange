@@ -18,8 +18,6 @@ let ExchangeView = ({ exchange, balance, rates, history, dispatch }) => {
     const [amounts, setAmounts] = useState({ from: 0, to: 0 });
     const [convert, setConvert] = useState(exchange);
 
-    console.log(rates, Number(rates[convert.from]) , Number(rates[convert.to]))
-
     const exchangeRate = rates ? (Number(rates[convert.from]) / Number(rates[convert.to])) : 1
 
     const onChangeCurrencyFrom = () => setShowSelectorFor({ type: 'FROM', selected: convert.from })
@@ -63,8 +61,8 @@ let ExchangeView = ({ exchange, balance, rates, history, dispatch }) => {
 
     const exchangeMoney = () => {
 
-        const from = Math.abs(amounts.from)
-        const to = Math.abs(amounts.to)
+        const from = Math.abs(amounts.from).toFixed(2)
+        const to = Math.abs(amounts.to).toFixed(2)
 
         const transactionFrom = {
             sign: '-',
