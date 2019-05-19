@@ -1,0 +1,24 @@
+.r-action-button-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    cursor: default;
+    border-radius: 5rem;
+    background: var(--action);
+    line-height: 5.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 10px 18px 0px var(--action-shadow);
+    opacity: 0.9;
+}
+
+.r-action-button-wrapper:hover {
+    opacity: 1;
+}
+
+.r-action-button-text {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 550;
+}

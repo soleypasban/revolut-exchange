@@ -1,4 +1,7 @@
 :root {
     --blue: #0075eb;
     --pink: #fff0e9;
+    --action: #eb008d;
+    --action-shadow: rgba(235, 0, 141, 0.4);
+    --transition: all 0.25s ease;
 }
