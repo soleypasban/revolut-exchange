@@ -1,0 +1,62 @@
+.r-currency-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.r-currency-selector-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #ffffff;
+}
+
+.r-currency-selector-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.5rem 2.25rem;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.r-currency-selector-icon {
+    width: 2.6rem;
+    margin-right: 0.75rem;
+}
+
+.r-currency-selector-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.r-currency-selector-label {
+    display: flex;
+    align-items: center;
+    line-height: 5rem;
+}
+
+.r-currency-selector-row:hover {
+    color: #000000;
+    background: #fafafa;
+}
+
+.r-currency-selector-active {
+    color: #000000;
+    font-weight: 600;
+}
+
+.r-currency-selector-current>svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    color: var(--blue);
+}
