@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { PageHeader } from '../components/PageHeader';
 import { ActionButton } from '../components/ActionButton';
 import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { RateBox } from '../components/RateBox';
 import { SwapRate } from '../components/SwapRate';
 
-const ExchangeView = ({ match, history }) => {
+let ExchangeView = ({ exchange, balances, exchangeRate, history }) => {
 
-    const rate = 1.1524
     const [amounts, setAmounts] = useState({ from: 0, to: 0 });
-    const [convert, setConvert] = useState({ from: match.params.from, to: match.params.to });
+    const [convert, setConvert] = useState(exchange);
 
     const onChangeCurrencyFrom = () => alert('chaneg from')
     const onChangeCurrencyTo = () => alert('chaneg to')
 
-    const onFromChange = (value) => setAmounts({ from: value, to: value * rate })
-    const onToChange = (value) => setAmounts({ from: value, to: value / rate })
+    const onFromChange = (value) => setAmounts({ from: value, to: value * exchangeRate })
+    const onToChange = (value) => setAmounts({ from: value, to: value / exchangeRate })
 
     const swapCurrencies = () => {
         setConvert({ from: convert.to, to: convert.from })
         setAmounts({ from: amounts.to, to: amounts.from })
-    }
-
-    const balances = {
-       EUR: 15.25,
-       USD: 20.11
     }
 
     return (
@@ -38,7 +33,7 @@ const ExchangeView = ({ match, history }) => {
             <div className='r-exchange-bottom-wrapper'>
                 <div className='r-exchange-rate-container'>
                     <SwapRate onClick={swapCurrencies} />
-                    <RateBox from={match.params.from} to={match.params.to} rate={rate} />
+                    <RateBox from={convert.from} to={convert.to} rate={exchangeRate} />
                     <span />
                 </div>
                 <div className='r-exchange-to-container'>
@@ -51,5 +46,18 @@ const ExchangeView = ({ match, history }) => {
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    const exchangeRate = state.settings.exchangeRate || 1
+    const exchange = state.settings.currencies.exchange
+    const balances = {
+        [exchange.from]: (state.balance[exchange.from] || 0),
+        [exchange.to]: (state.balance[exchange.to] || 0)
+    }
+    console.log({ exchange, balances, exchangeRate })
+    return { exchange, balances, exchangeRate }
+}
+
+ExchangeView = connect(mapStateToProps)(ExchangeView)
 
 export { ExchangeView };

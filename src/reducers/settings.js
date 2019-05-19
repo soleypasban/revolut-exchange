@@ -3,9 +3,10 @@ import { ACTIVE_CURRENCY, ACTIVE_EXHCANGES, ACTIVE_ADD_CURRENCY } from "../actio
 const initialState = {
     currencies: {
         accounts: 'EUR',
-        exchange: { from: 'EUR', to: 'EUR' },
+        exchange: { from: 'EUR', to: 'USD' },
         add: 'EUR'
-    }
+    },
+    exchangeRate: null
 }
 
 export const settings = (state = initialState, action) => {

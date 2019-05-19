@@ -11,6 +11,7 @@
     width: 19rem;
     border:2px solid #f3f3f3;
     margin-left: -2rem;
+    padding-right: 0.5rem;
 }
 
 .r-rate-box-container>svg{
