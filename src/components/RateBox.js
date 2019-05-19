@@ -1,5 +1,5 @@
 import React from 'react';
-import { stockArrow } from '../Icons';
+import { stockArrow } from '../images/Icons';
 import { CurrencySign } from '../dictionary/Currencies'
 
 const RateBox = ({ from, to, rate }) =>

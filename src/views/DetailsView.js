@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PageHeader } from '../components/PageHeader';
+import { Flags } from '../images/flags';
 
 let DetailsView = ({ history }) => {
     return (
         <div className='r-view'>
             <PageHeader label='Add money' onClose={() => history.push('/accounts')} />
             <div className='r-add-top-wrapper'>
-                DetailsView
+                DetailsView <img src={Flags['USD']} alt='' />
             </div>
         </div>
     )

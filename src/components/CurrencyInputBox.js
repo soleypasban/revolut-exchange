@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NumberFormat from 'react-number-format';
 import { CurrencySign } from '../dictionary/Currencies'
-import { arrowDown } from '../Icons'
+import { arrowDown } from '../images/Icons'
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CurrencySign } from '../../dictionary/Currencies'
-import { Images } from '../../Images';
+import { Images } from '../../images/Images';
 
 const Transaction = ({
     amount,

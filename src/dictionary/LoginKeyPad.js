@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrowLeft } from '../Icons'
+import { arrowLeft } from '../images/Icons'
 
 const FORGOT_VALUE = <span className='r-login-keypad-forgot'>Forgot?</span>
 const ERASE_VALUE = <span className='r-login-keypad-erase'>{arrowLeft}</span>
