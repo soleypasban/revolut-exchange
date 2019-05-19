@@ -1,0 +1,32 @@
+.r-currency-input-wrapper {
+    margin: 2rem 2rem;
+}
+
+.r-currency-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.r-currency-input-amount{
+
+}
+
+.r-currency-input-name {
+    font-size: 3.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.r-currency-input-name>svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.r-currency-input-balance {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #555555;
+}

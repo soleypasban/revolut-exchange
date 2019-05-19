@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CurrencySign = {
     eur: <span>&euro;</span>,
-    usd: <span>&usd;</span>,
+    usd: <span>$</span>,
     gbp: <span>&pound;</span>
 }
 
