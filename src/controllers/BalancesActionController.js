@@ -18,7 +18,7 @@ let BalancesActionController = ({ dispatch, history, currency, amount }) => {
     }
 
     const onDetailsClicked = () => {
-        history.push(`/details/${currency}`)
+        history.push(`/details`)
     }
 
     return (

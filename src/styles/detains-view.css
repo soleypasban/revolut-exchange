@@ -1,0 +1,22 @@
+.r-details-gradient {
+    height: 15rem;
+    background: linear-gradient(#ffffff, #eeeeee);
+    width: 100%;
+}
+
+.r-details-flag-icon {
+    margin-top: -64px;
+    margin-bottom: 2rem;
+    z-index: 1;
+}
+
+.r-details-balance-amount {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 2rem 0;
+}
+
+.r-details-account-name {
+    font-size: 1.4rem;
+    color: #777777;
+}
