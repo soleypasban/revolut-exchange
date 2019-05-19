@@ -4,3 +4,5 @@ export const separateNumberParts = amount => {
     const parts = { int, decimals }
     return parts
 }
+
+export const getValue = value => Math.abs((Number(value || 0)).toFixed(2))

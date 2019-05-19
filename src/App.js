@@ -14,7 +14,7 @@ const App = ({ location }) =>
     <Router history={history}>
       <Route path="/" exact component={LoginView} />
       <Route path="/accounts" component={AccountsView} />
-      <Route path="/exchange/:from?/:to?" component={ExchangeView} />
+      <Route path="/exchange" component={ExchangeView} />
       <Route path="/add" component={AddMoneyView} />
     </Router>
   </div>

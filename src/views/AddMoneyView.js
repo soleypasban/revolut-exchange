@@ -30,7 +30,7 @@ let AddMoneyView = ({ dispatch, history, currentBalance, currency }) => {
             </div>
             <div className='r-add-bottom-wrapper'>
                 <div className='r-add-button-container'>
-                    <ActionButton label='Add money' onClick={addMoneyAndGoBack} />
+                    <ActionButton disabled={!(Math.abs(amount) > 0)} label='Add money' onClick={addMoneyAndGoBack} />
                 </div>
             </div>
         </div>

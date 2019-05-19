@@ -29,7 +29,8 @@ let ExchangeView = ({ exchange, balances, exchangeRate, history, dispatch }) => 
         setAmounts({ from: amounts.to, to: amounts.from })
     }
 
-    const hasEnoughBalance = (Number(balances[convert.from]) >= Number(Math.abs(amounts.from)))
+    const fromEmpty = !(Math.abs(amounts.from) > 0)
+    const notEnoughBalance = (Number(balances[convert.from]) < Number(Math.abs(amounts.from)))
 
     const exchangeMoney = () => {
         dispatch(removeMoney(convert.from, amounts.from))
@@ -37,12 +38,14 @@ let ExchangeView = ({ exchange, balances, exchangeRate, history, dispatch }) => 
         history.push('/accounts')
     }
 
+    console.log({ notEnoughBalance, amounts, fromEmpty })
+
     return (
         <div className='r-view'>
             <PageHeader label='Exchange' onClose={() => history.push('/accounts')} />
             <div className='r-exchange-top-wrapper'>
                 <div className='r-exchange-from-container'>
-                    <CurrencyInputBox hasEnoughBalance={hasEnoughBalance} balance={balances[convert.from]} currency={convert.from} sign='-' value={amounts.from} onChange={onFromChange} onChangeCurrency={onChangeCurrencyFrom} />
+                    <CurrencyInputBox notEnoughBalance={notEnoughBalance} balance={balances[convert.from]} currency={convert.from} sign='-' value={amounts.from} onChange={onFromChange} onChangeCurrency={onChangeCurrencyFrom} />
                 </div>
             </div>
             <div className='r-exchange-bottom-wrapper'>
@@ -52,10 +55,10 @@ let ExchangeView = ({ exchange, balances, exchangeRate, history, dispatch }) => 
                     <span />
                 </div>
                 <div className='r-exchange-to-container'>
-                    <CurrencyInputBox hasEnoughBalance={true} balance={balances[convert.to]} currency={convert.to} sign='+' value={amounts.to} onChange={onToChange} onChangeCurrency={onChangeCurrencyTo} />
+                    <CurrencyInputBox balance={balances[convert.to]} currency={convert.to} sign='+' value={amounts.to} onChange={onToChange} onChangeCurrency={onChangeCurrencyTo} />
                 </div>
                 <div className='r-exchange-button-container'>
-                    <ActionButton enable={hasEnoughBalance} label='Exchange' onClick={exchangeMoney} />
+                    <ActionButton disabled={notEnoughBalance || fromEmpty} label='Exchange' onClick={exchangeMoney} />
                 </div>
             </div>
         </div>
