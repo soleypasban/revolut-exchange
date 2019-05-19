@@ -1,8 +1,7 @@
 import React from 'react';
-import { stockArrow, swap } from '../Icons';
-import { CurrencySign } from '../dictionary/Currencies'
+import { swap } from '../Icons';
 
-const SwapRate = ({ from, to, rate, onClick}) =>
+const SwapRate = ({ onClick }) =>
     <div className='r-swap-rate-container' onClick={onClick}>
         {swap}
     </div>

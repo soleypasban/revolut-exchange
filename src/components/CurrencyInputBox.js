@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import CurrencyInput from 'react-currency-input-field'
 import NumberFormat from 'react-number-format';
 import { CurrencySign } from '../dictionary/Currencies'
 import { arrowDown } from '../Icons'
+import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
 
-const MAX = 999999
 
-const CurrencyInputBox = ({ currency, balance, sign, value, max, onChangeCurrency, onChange }) => {
+const CurrencyInputBox = ({ currency, balance, sign, value, onChangeCurrency, onChange }) => {
     const [active, setActive] = useState(false);
     const setAmounntValue = ({ value }) => active && onChange && onChange(value)
-    const isNumberValid = input => Math.abs(input.floatValue || 0) < (max || MAX)
+    const isNumberValid = input => Math.abs(input.floatValue || 0) < MAX_INPUT_VALUE
 
     return (
         <div className='r-currency-input-wrapper'>

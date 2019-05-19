@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PageHeader } from '../components/PageHeader';
 import { ActionButton } from '../components/ActionButton';
 import { CurrencyInputBox } from '../components/CurrencyInputBox';
-import {addMoney} from '../actions/balance'
+import { addMoney } from '../actions/balance'
 
 let AddMoneyView = ({ dispatch, history, currentBalance, currency }) => {
     const [amount, setAmount] = useState(0);

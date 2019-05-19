@@ -1,5 +1,5 @@
 import React from 'react';
-import { KeyLabels, KeyValues, ERASE } from '../../dictionary/LoginKeyPad'
+import { KeyLabels, KeyValues } from '../../dictionary/LoginKeyPad'
 
 const LoginKeyboard = ({ onClick, isErasable }) =>
     <div className='r-login-keypad-wrapper'>

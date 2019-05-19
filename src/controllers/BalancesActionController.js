@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { RoundButtons, BalanceValue } from '../components/Accounts';
 import { separateNumberParts } from '../components/helpers/separateNumberParts';
+import { setAddMoneyCurrencyTo } from '../actions/settings';
 
-let BalancesActionController = ({ history, currency, amount }) => {
+let BalancesActionController = ({ dispatch, history, currency, amount }) => {
 
     const onExchangeClicked = () => {
         const to = (currency === 'USD') ? 'EUR' : 'USD'
@@ -11,7 +12,8 @@ let BalancesActionController = ({ history, currency, amount }) => {
     }
 
     const onAddMoneyClicked = () => {
-        history.push(`/add/${currency}`)
+        dispatch(setAddMoneyCurrencyTo(currency))
+        history.push(`/add`)
     }
 
     const onDetailsClicked = () => {
