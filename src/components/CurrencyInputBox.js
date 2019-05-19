@@ -5,11 +5,10 @@ import { arrowDown } from '../Icons'
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
 
 
-const CurrencyInputBox = ({ currency, balance, sign, value, onChangeCurrency, onChange }) => {
+const CurrencyInputBox = ({ hasEnoughBalance, currency, balance, sign, value, onChangeCurrency, onChange }) => {
     const [active, setActive] = useState(false);
     const setAmounntValue = ({ value }) => active && onChange && onChange(value)
     const isNumberValid = input => Math.abs(input.floatValue || 0) < MAX_INPUT_VALUE
-
     return (
         <div className='r-currency-input-wrapper'>
             <div className='r-currency-input-container'>
@@ -31,7 +30,7 @@ const CurrencyInputBox = ({ currency, balance, sign, value, onChangeCurrency, on
                 </span>
             </div>
 
-            <span className='r-currency-input-balance'>Balance: {CurrencySign[currency]}
+            <span className={`r-currency-input-balance ${hasEnoughBalance ? '' : 'r-currency-input-balance-below'}`}>Balance: {CurrencySign[currency]}
                 <NumberFormat
                     value={balance || 0}
                     thousandSeparator={true}

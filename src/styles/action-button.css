@@ -17,6 +17,11 @@
     opacity: 1;
 }
 
+.r-action-button-disabled,
+.r-action-button-disabled:hover {
+    opacity: 0.3;
+}
+
 .r-action-button-text {
     color: #ffffff;
     font-size: 2rem;

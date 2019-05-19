@@ -39,3 +39,8 @@
     font-weight: 500;
     color: #999999;
 }
+
+.r-currency-input-balance-below {
+    color: #ff1111;
+    font-weight: 600;
+}
