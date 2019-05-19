@@ -1,23 +1,27 @@
 import React from 'react';
 import { CurrencySign } from '../../dictionary/Currencies'
-import imgCoins from '../../assets/coins.png'
+import { Images } from '../../Images';
 
-const ImageIcons = {
-    coins: <img src={imgCoins} alt='' />
-}
-
-const Transaction = props =>
+const Transaction = ({
+    amount,
+    currency,
+    date,
+    description,
+    icon,
+    info,
+    sign
+}) =>
     <div className='r-transaction-wrapper'>
         <div className='r-transaction-info'>
-            <span className='r-transaction-img'>{ImageIcons[props.img]}</span>
+            <span className='r-transaction-img'>{<img src={Images[icon]} alt='' />}</span>
             <div className='r-transaction-text'>
-                {props.text}
-                <span className='r-transaction-date'>2019/01/02 10:12</span>
+                <span>{description}</span>
+                <span className='r-transaction-date'>{date}</span>
             </div>
         </div>
         <span className='r-transaction-amount'>
-            <span>{props.sign}&nbsp;{CurrencySign[props.currency]}{props.amount}</span>
-            <span className='r-transaction-extra-info'>{props.extraInfo}</span>
+            <span>{sign}&nbsp;{CurrencySign[currency]}{amount}</span>
+            <span className='r-transaction-extra-info'>{info}</span>
         </span>
     </div>
 

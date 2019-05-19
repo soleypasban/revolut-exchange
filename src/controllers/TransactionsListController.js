@@ -1,17 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Transaction } from '../components/Accounts';
 
-const TransactionsListController = props =>
+let TransactionsListController = ({ transactionsList }) =>
     <div className='r-accounts-transactions'>
-        <Transaction sign='-' text='Sample Transaction' img='coins' currency='EUR' amount={20.12} />
-        <Transaction sign='-' text='Sample Transaction 2' img='coins' currency='USD' amount={20.12} />
-        <Transaction sign='+' text='Sample Transaction 3' img='coins' currency='TRY' amount={20.12} />
-        <Transaction sign='-' text='Sample Transaction 4' img='coins' currency='INR' amount={20.12} />
-        <Transaction sign='-' text='Sample Transaction 5' img='coins' currency='GBP' amount={20.12} />
-        <Transaction sign='-' text='Sample Transaction 6' img='coins' currency='EUR' amount={20.12} />
+        {transactionsList.map((transaction, key) =>
+            <Transaction {...{ ...transaction, key }} />
+        )}
     </div>
 
-export { TransactionsListController };
 
+const mapStateToProps = (state) => {
+    const currency = state.settings.currencies.accounts
+    const transactionsList = state.transactions[currency] || []
+    return { transactionsList }
+}
 
-// sign, amount, currency, icon, reason, date
+TransactionsListController = connect(mapStateToProps)(TransactionsListController)
+
+export { TransactionsListController }

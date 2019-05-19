@@ -35,31 +35,35 @@ let ExchangeView = ({ exchange, balances, exchangeRate, history, dispatch }) => 
     const notEnoughBalance = (Number(balances[convert.from]) < Number(Math.abs(amounts.from)))
 
     const exchangeMoney = () => {
+
+        const from = Math.abs(amounts.from)
+        const to = Math.abs(amounts.to)
+
         const transactionFrom = {
             sign: '-',
-            amount: amounts.from,
+            amount: from,
             currency: convert.from,
-            icon: 'transaction-removed',
-            reason: `Exchanged to ${convert.to}`,
+            icon: 'transaction',
+            description: `Exchanged to ${convert.to}`,
             date: 'Today',
-            info: `+${CurrencySign[convert.to]}${amounts.from}`
+            info: `+${CurrencySign[convert.to]}${to}`
         }
 
         const transactionTo = {
             sign: '+',
-            amount: amounts.to,
+            amount: to,
             currency: convert.to,
-            icon: 'transaction-add',
-            reason: `Exchanged to ${convert.from}`,
+            icon: 'transaction',
+            description: `Exchanged from ${convert.from}`,
             date: 'Today',
-            info: `-${CurrencySign[convert.from]}${amounts.to}`
+            info: `-${CurrencySign[convert.from]}${from}`
         }
 
         dispatch(logTransaction(transactionFrom))
         dispatch(logTransaction(transactionTo))
 
-        dispatch(removeMoney(convert.from, amounts.from))
-        dispatch(addMoney(convert.to, amounts.to))
+        dispatch(removeMoney(convert.from, from))
+        dispatch(addMoney(convert.to, to))
 
         history.push('/accounts')
     }

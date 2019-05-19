@@ -14,10 +14,10 @@ let AddMoneyView = ({ dispatch, history, currentBalance, currency }) => {
             sign: '+',
             amount,
             currency,
-            icon: 'transaction-add',
-            reason: 'Added to balance',
+            icon: 'topup',
+            description: 'Added to balance',
             date: 'Today',
-            info: ''
+            info: 'Visa 1234'
         }
         dispatch(addMoney(currency, amount))
         dispatch(logTransaction(transaction))

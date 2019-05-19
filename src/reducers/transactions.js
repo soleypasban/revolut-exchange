@@ -1,6 +1,18 @@
 import { LOG_TRANSACTION } from "../actions/transactions";
 
-const initialState = {}
+const initialState = {
+    EUR: [
+        {
+            amount: "12",
+            currency: "EUR",
+            date: "Today",
+            description: "Added to balance",
+            icon: "topup",
+            info: "VISA 1234",
+            sign: "+"
+        }
+    ]
+}
 
 export const transactions = (state = initialState, action) => {
     const { payload } = action
