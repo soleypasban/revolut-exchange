@@ -5,24 +5,38 @@ import { ActionButton } from '../components/ActionButton';
 import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { addMoney } from '../actions/balance'
 import { logTransaction } from '../actions/transactions'
+import { CurrencySelector } from '../components/CurrencySelector';
+import { setActiveCurrencyTo } from '../actions/settings';
 
-let AddMoneyView = ({ dispatch, history, currentBalance, currency }) => {
+let AddMoneyView = ({ dispatch, history, balance, currency }) => {
+    const [showSelector, setShowSelectorFor] = useState(null);
     const [amount, setAmount] = useState(0);
+    const [account, setAccount] = useState(currency);
+    const currentBalance = (balance[account] || 0)
 
     const addMoneyAndGoBack = () => {
         const transaction = {
             sign: '+',
             amount,
-            currency,
+            currency: account,
             icon: 'topup',
             description: 'Added to balance',
             date: 'Today',
             info: 'Visa 1234'
         }
-        dispatch(addMoney(currency, amount))
+        dispatch(addMoney(account, amount))
         dispatch(logTransaction(transaction))
-        
+        dispatch(setActiveCurrencyTo(account))
+
         history.push('/accounts')
+    }
+    const onChangeCurrency = () => setShowSelectorFor({ selected: account })
+
+    const onSelectCurrency = selection => {
+        if (selection) {
+            setAccount(selection)
+        }
+        setShowSelectorFor(null)
     }
 
     return (
@@ -32,11 +46,11 @@ let AddMoneyView = ({ dispatch, history, currentBalance, currency }) => {
                 <div className='r-exchange-from-container'>
                     <CurrencyInputBox
                         balance={currentBalance}
-                        currency={currency}
+                        currency={account}
                         sign='+'
                         value={amount}
                         onChange={amount => setAmount(amount)}
-                        onChangeCurrency={() => alert('onChangeCurrency')}
+                        onChangeCurrency={onChangeCurrency}
                     />
                 </div>
             </div>
@@ -45,14 +59,15 @@ let AddMoneyView = ({ dispatch, history, currentBalance, currency }) => {
                     <ActionButton disabled={!(Math.abs(amount) > 0)} label='Add money' onClick={addMoneyAndGoBack} />
                 </div>
             </div>
+            {showSelector && <CurrencySelector selected={showSelector.selected} onSelectCurrency={onSelectCurrency} />}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     const currency = state.settings.currencies.add
-    const currentBalance = (state.balance[currency] || 0)
-    return { currentBalance, currency }
+    const balance = state.balance
+    return { balance, currency }
 }
 
 AddMoneyView = connect(mapStateToProps)(AddMoneyView)
