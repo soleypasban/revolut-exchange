@@ -55,6 +55,11 @@ export const swap =
     </svg>
 
 
+export const stockArrow =
+    <svg viewBox="0 0 30 30">
+    <path fill="currentColor" d="m17.53757,18.28271l-4.312,-4.479l-10.371,10.54l-1.426,-1.402l11.812,-12.005l4.354,4.522l7.49,-7.172l-2.146,-2.145l5.603,0l0,5.601l-2.043,-2.042l-8.961,8.582z"/>
+    </svg>
+
 export const Icons = {
     plus,
     exchange,
@@ -62,5 +67,6 @@ export const Icons = {
     close,
     arrowLeft,
     arrowDown,
-    swap
+    swap,
+    stockArrow
 }
