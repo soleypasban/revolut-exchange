@@ -44,6 +44,7 @@ body {
 @import 'currency-input.css';
 @import 'rate-box.css';
 @import 'swap-rate.css';
+@import 'footerbar.css';
 @import 'account-selector.css';
 @import 'currency-selector.css';
 

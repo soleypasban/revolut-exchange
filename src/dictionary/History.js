@@ -1,5 +1,4 @@
 import { createBrowserHistory } from 'history';
 
-const History = createBrowserHistory()
-
-export default History;
+export const history = createBrowserHistory()
+export const browseTo = path => history.push(path)

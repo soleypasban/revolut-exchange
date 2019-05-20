@@ -1,11 +1,12 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom'
-import history from './dictionary/History';
+import { history } from './dictionary/History';
 import { AccountsView } from './views/AccountsView';
 import { LoginView } from './views/LoginView';
 import { ExchangeView } from './views/ExchangeView';
 import { DetailsView } from './views/DetailsView';
 import { AddMoneyView } from './views/AddMoneyView';
+import { Footerbar } from './components/Footerbar';
 
 const App = ({ location }) =>
   <div className="r-app noselect">

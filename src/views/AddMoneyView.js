@@ -7,6 +7,7 @@ import { addMoney } from '../actions/balance'
 import { logTransaction } from '../actions/transactions'
 import { CurrencySelector } from '../components/CurrencySelector';
 import { setActiveCurrencyTo } from '../actions/settings';
+import { Footerbar } from '../components/Footerbar';
 
 let AddMoneyView = ({ dispatch, history, balance, currency }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
@@ -59,6 +60,7 @@ let AddMoneyView = ({ dispatch, history, balance, currency }) => {
                     <ActionButton disabled={!(Math.abs(amount) > 0)} label='Add money' onClick={addMoneyAndGoBack} />
                 </div>
             </div>
+            <Footerbar />
             {showSelector && <CurrencySelector selected={showSelector.selected} onSelectCurrency={onSelectCurrency} />}
         </div>
     )

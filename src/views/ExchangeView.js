@@ -11,6 +11,7 @@ import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
 import { CurrencySign } from '../dictionary/Currencies'
 import { CurrencySelector } from '../components/CurrencySelector';
 import { setActiveCurrencyTo } from '../actions/settings';
+import { Footerbar } from '../components/Footerbar';
 
 let ExchangeView = ({ exchange, balance, rates, history, dispatch }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
@@ -116,6 +117,8 @@ let ExchangeView = ({ exchange, balance, rates, history, dispatch }) => {
                     <ActionButton disabled={notEnoughBalance || fromEmpty} label='Exchange' onClick={exchangeMoney} />
                 </div>
             </div>
+
+            <Footerbar />
             {showSelector && <CurrencySelector selected={showSelector.selected} onSelectCurrency={onSelectCurrency} />}
         </div>
     )
