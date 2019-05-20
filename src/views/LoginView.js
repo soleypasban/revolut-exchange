@@ -3,6 +3,7 @@ import revolutLogo from '../assets/revolutLogo.png'
 import { FORGOT, ERASE } from '../dictionary/LoginKeyPad'
 import { LoginPinCircles, LoginKeyboard } from '../components/Logins';
 import { browseTo } from '../dictionary/History';
+import { PinCode } from '../dictionary/PinCode';
 
 const LoginView = () => {
 
@@ -17,7 +18,7 @@ const LoginView = () => {
             const newPasscode = `${pass}${label}`
             setPasscode(newPasscode)
             if (newPasscode.length === 4) {
-                if (Number(newPasscode) === 5348) {
+                if (Number(newPasscode) === Number(PinCode)) {
                     browseTo('/accounts')
                 }
                 setTimeout(() => setPasscode(''), 500)

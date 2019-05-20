@@ -1,0 +1,1 @@
+export const PinCode = 5348
