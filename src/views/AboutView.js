@@ -7,7 +7,7 @@ import { Footerbar } from '../components/Footerbar';
 const AboutView = () => {
     return (
         <div className='r-view'>
-            <PageHeader label='About me' onClose={() => browseTo('/accounts')} />
+            <PageHeader label='About' onClose={() => browseTo('/accounts')} />
             <div className='r-about-gradient' />
             <img className='r-about-icon' src={soleyPicture} alt='' />
             <div className='r-about-name'>Soley Pasban</div>
