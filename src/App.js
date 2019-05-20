@@ -6,14 +6,15 @@ import { LoginView } from './views/LoginView';
 import { ExchangeView } from './views/ExchangeView';
 import { DetailsView } from './views/DetailsView';
 import { AddMoneyView } from './views/AddMoneyView';
-import { Footerbar } from './components/Footerbar';
 import { AboutView } from './views/AboutView';
+import { RatesView } from './views/RatesView';
 
 const App = ({ location }) =>
   <div className="r-app noselect">
     <Router history={history}>
       <Route path="/" exact component={LoginView} />
       <Route path="/accounts" component={AccountsView} />
+      <Route path="/rates" component={RatesView} />
       <Route path="/exchange" component={ExchangeView} />
       <Route path="/details" component={DetailsView} />
       <Route path="/about" component={AboutView} />
