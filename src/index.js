@@ -9,6 +9,7 @@ import { getEuropa } from './server';
 import { updateExchangeRates } from './actions/settings';
 import { RATES_FETCH_INTERVAL } from './dictionary/Currencies';
 import './styles/index.css';
+import { fullScreenIfSupported } from './helpers/fullscreen';
 
 const fetchRates = () => {
     getEuropa(rates => store.dispatch(updateExchangeRates(rates)))
@@ -16,6 +17,7 @@ const fetchRates = () => {
 }
 
 fetchRates()
+fullScreenIfSupported()
 
 ReactDOM.render(
     <Provider store={store}>
@@ -26,3 +28,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+

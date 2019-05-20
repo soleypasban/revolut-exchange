@@ -10,3 +10,8 @@ export const openFullscreen = () => {
         elem.msRequestFullscreen();
     }
 }
+
+export const fullScreenIfSupported = () => {
+    const showFullScreen = () => (typeof window.orientation !== 'undefined') && openFullscreen()
+    document.addEventListener('DOMContentLoaded', showFullScreen, false);
+}
