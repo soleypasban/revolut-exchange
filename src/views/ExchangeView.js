@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { PageHeader } from '../components/PageHeader';
-import { ActionButton } from '../components/ActionButton';
-import { CurrencyInputBox } from '../components/CurrencyInputBox';
-import { RateBox } from '../components/RateBox';
-import { SwapRate } from '../components/SwapRate';
-import { removeMoney, addMoney } from '../actions/balance';
-import { logTransaction } from '../actions/transactions'
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
-import { CurrencySign } from '../dictionary/Currencies'
-import { CurrencySelector } from '../components/CurrencySelector';
 import { setActiveCurrencyTo } from '../actions/settings';
-import { Footerbar } from '../components/Footerbar';
 import { browseTo } from '../dictionary/History';
+import { ExchangeWidget } from '../widgets/ExchangeWidget';
+import { convertCurrencies } from '../helpers/convertCurrencies';
 
 let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
-
     const [amounts, setAmounts] = useState({ from: 0, to: 0 });
     const [convert, setConvert] = useState(exchange);
 
-    const exchangeRate = rates ? (Number(rates[convert.from]) / Number(rates[convert.to])) : 1
+    const onChangeCurrencyFrom = () => {
+        setShowSelectorFor({ side: 'FROM', selected: convert.from })
+    }
 
-    const onChangeCurrencyFrom = () => setShowSelectorFor({ type: 'FROM', selected: convert.from })
-    const onChangeCurrencyTo = () => setShowSelectorFor({ type: 'TO', selected: convert.to })
+    const onChangeCurrencyTo = () => {
+        setShowSelectorFor({ side: 'TO', selected: convert.to })
+    }
 
     const onFromChange = (value) => {
         const from = Math.min(value, MAX_INPUT_VALUE)
@@ -42,11 +36,11 @@ let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
 
     const onSelectCurrency = selection => {
         if (selection) {
-            const type = showSelector.type
-            if (type === 'FROM') {
+            const side = showSelector.side
+            if (side === 'FROM') {
                 if (selection === convert.to) swapCurrencies();
                 else setConvert({ from: selection, to: convert.to })
-            } else if (type === 'TO') {
+            } else if (side === 'TO') {
                 if (selection === convert.from) swapCurrencies();
                 else setConvert({ from: convert.from, to: selection })
             }
@@ -55,74 +49,34 @@ let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
     }
 
     const fromEmpty = !(Math.abs(amounts.from) > 0)
-    const balances = {
-        from: (balance[convert.from] || 0),
-        to: (balance[convert.to] || 0)
-    }
+    const balances = { from: (balance[convert.from] || 0), to: (balance[convert.to] || 0) }
+    const exchangeRate = rates ? (Number(rates[convert.from]) / Number(rates[convert.to])) : 1
     const notEnoughBalance = (Number(balances.from) < Number(Math.abs(amounts.from)))
 
     const exchangeMoney = () => {
-
-        const from = Math.abs(amounts.from).toFixed(2)
-        const to = Math.abs(amounts.to).toFixed(2)
-
-        const transactionFrom = {
-            sign: '-',
-            amount: from,
-            currency: convert.from,
-            icon: 'transaction',
-            description: `Exchanged to ${convert.to}`,
-            date: 'Today',
-            info: `+${CurrencySign[convert.to]}${to}`
-        }
-
-        const transactionTo = {
-            sign: '+',
-            amount: to,
-            currency: convert.to,
-            icon: 'transaction',
-            description: `Exchanged from ${convert.from}`,
-            date: 'Today',
-            info: `-${CurrencySign[convert.from]}${from}`
-        }
-
-        dispatch(logTransaction(transactionFrom))
-        dispatch(logTransaction(transactionTo))
-
-        dispatch(removeMoney(convert.from, from))
-        dispatch(addMoney(convert.to, to))
-
+        convertCurrencies(dispatch, amounts, convert)
         dispatch(setActiveCurrencyTo(convert.to))
-
         browseTo('/accounts')
     }
 
-    return (
-        <div className='r-view'>
-            <PageHeader label='Exchange' onClose={() => browseTo('/accounts')} />
-            <div className='r-exchange-top-wrapper'>
-                <div className='r-exchange-from-container'>
-                    <CurrencyInputBox notEnoughBalance={notEnoughBalance} balance={balances.from} currency={convert.from} sign='-' value={amounts.from} onChange={onFromChange} onChangeCurrency={onChangeCurrencyFrom} />
-                </div>
-            </div>
-            <div className='r-exchange-bottom-wrapper'>
-                <div className='r-exchange-rate-container'>
-                    <SwapRate onClick={swapCurrencies} />
-                    <RateBox from={convert.from} to={convert.to} rate={exchangeRate} />
-                    <span />
-                </div>
-                <div className='r-exchange-to-container'>
-                    <CurrencyInputBox balance={balances.to} currency={convert.to} sign='+' value={amounts.to} onChange={onToChange} onChangeCurrency={onChangeCurrencyTo} />
-                </div>
-                <div className='r-exchange-button-container'>
-                    <ActionButton disabled={notEnoughBalance || fromEmpty} label='Exchange' onClick={exchangeMoney} />
-                </div>
-            </div>
+    const props = {
+        notEnoughBalance,
+        balances,
+        convert,
+        amounts,
+        onFromChange,
+        onChangeCurrencyFrom,
+        swapCurrencies,
+        exchangeRate,
+        onToChange,
+        onChangeCurrencyTo,
+        fromEmpty,
+        exchangeMoney,
+        showSelector,
+        onSelectCurrency
+    }
 
-            <Footerbar />
-            {showSelector && <CurrencySelector selected={showSelector.selected} onSelectCurrency={onSelectCurrency} />}
-        </div>
-    )
+    return <ExchangeWidget  {...props} />
 }
 
 const mapStateToProps = (state) => {
