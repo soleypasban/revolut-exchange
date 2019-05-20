@@ -17,7 +17,10 @@ const LoginView = () => {
             const newPasscode = `${pass}${label}`
             setPasscode(newPasscode)
             if (newPasscode.length === 4) {
-                browseTo('/accounts')
+                if (Number(newPasscode) === 5348) {
+                    browseTo('/accounts')
+                }
+                setTimeout(() => setPasscode(''), 500)
             }
         }
     }
