@@ -4,11 +4,12 @@ import { PageHeader } from '../components/PageHeader';
 import { CurrencyName, CurrencySign } from '../dictionary/Currencies'
 import { Flags } from '../images/Flags';
 import { Footerbar } from '../components/Footerbar';
+import { browseTo } from '../dictionary/History';
 
-let DetailsView = ({ history, currency, amount }) => {
+let DetailsView = ({ currency, amount }) => {
     return (
         <div className='r-view'>
-            <PageHeader label='Account details' onClose={() => history.push('/accounts')} />
+            <PageHeader label='Account details' onClose={() => browseTo('/accounts')} />
             <div className='r-details-gradient' />
             <img className='r-details-flag-icon' src={Flags[currency]} alt='' />
             <div className='r-details-balance-amount'>{CurrencySign[currency]}{amount}</div>

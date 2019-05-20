@@ -4,10 +4,10 @@ import { TransactionsListController } from '../controllers/TransactionsListContr
 import { AccountSelector } from '../components/AccountSelector';
 import { Footerbar } from '../components/Footerbar';
 
-const AccountsView = ({ history }) =>
+const AccountsView = () =>
     <div className='r-view'>
         <AccountSelector />
-        <BalancesActionController history={history} />
+        <BalancesActionController />
         <TransactionsListController />
         <Footerbar />
     </div>

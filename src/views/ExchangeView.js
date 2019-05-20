@@ -12,8 +12,9 @@ import { CurrencySign } from '../dictionary/Currencies'
 import { CurrencySelector } from '../components/CurrencySelector';
 import { setActiveCurrencyTo } from '../actions/settings';
 import { Footerbar } from '../components/Footerbar';
+import { browseTo } from '../dictionary/History';
 
-let ExchangeView = ({ exchange, balance, rates, history, dispatch }) => {
+let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
 
     const [amounts, setAmounts] = useState({ from: 0, to: 0 });
@@ -93,12 +94,12 @@ let ExchangeView = ({ exchange, balance, rates, history, dispatch }) => {
 
         dispatch(setActiveCurrencyTo(convert.to))
 
-        history.push('/accounts')
+        browseTo('/accounts')
     }
 
     return (
         <div className='r-view'>
-            <PageHeader label='Exchange' onClose={() => history.push('/accounts')} />
+            <PageHeader label='Exchange' onClose={() => browseTo('/accounts')} />
             <div className='r-exchange-top-wrapper'>
                 <div className='r-exchange-from-container'>
                     <CurrencyInputBox notEnoughBalance={notEnoughBalance} balance={balances.from} currency={convert.from} sign='-' value={amounts.from} onChange={onFromChange} onChangeCurrency={onChangeCurrencyFrom} />

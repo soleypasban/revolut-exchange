@@ -3,22 +3,23 @@ import { connect } from 'react-redux';
 import { RoundButtons, BalanceValue } from '../components/Accounts';
 import { setAddMoneyCurrencyTo, setActiveExchangeTo } from '../actions/settings';
 import { separateNumberParts } from '../helpers/numbers';
+import { browseTo } from '../dictionary/History';
 
-let BalancesActionController = ({ dispatch, history, currency, amount }) => {
+let BalancesActionController = ({ dispatch, currency, amount }) => {
 
     const onExchangeClicked = () => {
         const to = (currency === 'USD') ? 'EUR' : 'USD'
         dispatch(setActiveExchangeTo(currency, to))
-        history.push(`/exchange`)
+        browseTo(`/exchange`)
     }
 
     const onAddMoneyClicked = () => {
         dispatch(setAddMoneyCurrencyTo(currency))
-        history.push(`/add`)
+        browseTo(`/add`)
     }
 
     const onDetailsClicked = () => {
-        history.push(`/details`)
+        browseTo(`/details`)
     }
 
     return (

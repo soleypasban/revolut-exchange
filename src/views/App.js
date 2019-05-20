@@ -1,16 +1,16 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom'
-import { history } from './dictionary/History';
-import { AccountsView } from './views/AccountsView';
-import { LoginView } from './views/LoginView';
-import { ExchangeView } from './views/ExchangeView';
-import { DetailsView } from './views/DetailsView';
-import { AddMoneyView } from './views/AddMoneyView';
-import { AboutView } from './views/AboutView';
-import { RatesView } from './views/RatesView';
-import { ForgotView } from './views/ForgotView';
+import { history } from '../dictionary/History';
+import { AccountsView } from './AccountsView';
+import { LoginView } from './LoginView';
+import { ExchangeView } from './ExchangeView';
+import { DetailsView } from './DetailsView';
+import { AddMoneyView } from './AddMoneyView';
+import { AboutView } from './AboutView';
+import { RatesView } from './RatesView';
+import { ForgotView } from './ForgotView';
 
-const App = ({ location }) =>
+const App = () =>
   <div className="r-app noselect">
     <Router history={history}>
       <Route path="/" exact component={LoginView} />
@@ -24,4 +24,4 @@ const App = ({ location }) =>
     </Router>
   </div>
 
-export default App;
+export { App };

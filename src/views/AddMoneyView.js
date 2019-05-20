@@ -8,8 +8,9 @@ import { logTransaction } from '../actions/transactions'
 import { CurrencySelector } from '../components/CurrencySelector';
 import { setActiveCurrencyTo } from '../actions/settings';
 import { Footerbar } from '../components/Footerbar';
+import { browseTo } from '../dictionary/History';
 
-let AddMoneyView = ({ dispatch, history, balance, currency }) => {
+let AddMoneyView = ({ dispatch, balance, currency }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
     const [amount, setAmount] = useState(0);
     const [account, setAccount] = useState(currency);
@@ -29,7 +30,7 @@ let AddMoneyView = ({ dispatch, history, balance, currency }) => {
         dispatch(logTransaction(transaction))
         dispatch(setActiveCurrencyTo(account))
 
-        history.push('/accounts')
+        browseTo('/accounts')
     }
     const onChangeCurrency = () => setShowSelectorFor({ selected: account })
 
@@ -42,7 +43,7 @@ let AddMoneyView = ({ dispatch, history, balance, currency }) => {
 
     return (
         <div className='r-view'>
-            <PageHeader label='Add money' onClose={() => history.push('/accounts')} />
+            <PageHeader label='Add money' onClose={() => browseTo('/accounts')} />
             <div className='r-add-top-wrapper'>
                 <div className='r-exchange-from-container'>
                     <CurrencyInputBox
