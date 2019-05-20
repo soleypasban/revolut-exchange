@@ -11,6 +11,7 @@
     width: 18rem;
     border-radius: 50%;
     border: 2px solid #f7f7f7;
+    filter: grayscale(100%);
 }
 
 .r-about-name {
