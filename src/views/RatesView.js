@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { CurrencySign, CurrencyName } from '../dictionary/Currencies'
 import { Flags } from '../images/Flags';
-import { checkIcon } from '../images/Icons';
 import { Footerbar } from '../components/Footerbar';
 import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { CurrencySelector } from '../components/CurrencySelector';

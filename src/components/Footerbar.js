@@ -3,7 +3,7 @@ import { Icons } from '../images/Icons';
 import { browseTo } from '../dictionary/History';
 
 
-const Footerbar = ({ }) =>
+const Footerbar = () =>
     <div className='r-footer-wrapper'>
         <FooterButton label='Accounts' icon='wallet' route='/accounts' />
         <FooterButton label='Rates' icon='stock' route='/rates' />
