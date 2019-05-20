@@ -3,7 +3,7 @@ import { balance } from './reducers/balance';
 import { settings } from './reducers/settings';
 import { transactions } from './reducers/transactions';
 import { reducer as reduxFormReducer } from 'redux-form';
-// import { VanloMiddleware, QueueMiddleware, PrepareMiddleware, SSDataMiddleware, LoginMiddleware, ConnectorMiddleware, SubscribeMiddleware, PrintMiddleware } from './middlewares';
+import { TestStore } from './dictionary/TestStore';
 
 const rootReducer = combineReducers({
     form: reduxFormReducer,
@@ -19,7 +19,7 @@ const logger = store => next => action => {
 
 const store = createStore(
     rootReducer,
-    undefined,
+    TestStore,
     compose(
         applyMiddleware(logger),
         window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f,
