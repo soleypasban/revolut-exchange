@@ -1,0 +1,16 @@
+.r-empty-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    font-size: 1.8rem;
+    color: #aaaaaa;
+}
+
+.r-empty-icon{
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+    color: #aaaaaa;
+}

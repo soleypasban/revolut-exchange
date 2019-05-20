@@ -47,6 +47,7 @@ body {
 @import 'footerbar.css';
 @import 'account-selector.css';
 @import 'currency-selector.css';
+@import 'empty-content.css';
 
 @import 'login.css';
 @import 'accounts.css';

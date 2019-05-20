@@ -1,9 +1,9 @@
 import React from 'react';
-import { Icons } from '../images/Icons';
-import { browseTo } from '../dictionary/History';
+import { fire } from '../images/Icons';
 
 const EmptyContent = ({ }) =>
-    <div className='r-exmpty-wrapper'>
+    <div className='r-empty-wrapper'>
+        <div className='r-empty-icon'>{fire}</div>
         There is nothing here!
     </div>
 
