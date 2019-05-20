@@ -1,8 +1,5 @@
 import React from 'react';
 import { browseTo } from '../dictionary/History'
-import { PageHeader } from '../components/PageHeader';
-import soleyPicture from '../assets/soley.jpg';
-import { Footerbar } from '../components/Footerbar';
 
 const ForgotView = () => {
     return (
