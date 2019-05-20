@@ -1,21 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { PageHeader } from '../components/PageHeader';
 import { CurrencyName, CurrencySign } from '../dictionary/Currencies'
 import { Flags } from '../images/Flags';
-import { Footerbar } from '../components/Footerbar';
-import { browseTo } from '../dictionary/History';
+import { View } from '../components/View'
 
 let DetailsView = ({ currency, amount }) =>
-    <div className='r-view'>
-        <PageHeader label='Account details' onClose={() => browseTo('/accounts')} />
+    <View title='Account details'>
         <div className='r-details-gradient' />
         <img className='r-details-flag-icon' src={Flags[currency]} alt='' />
         <div className='r-details-balance-amount'>{CurrencySign[currency]}{amount}</div>
         <div className='r-details-account-name'>{CurrencyName[currency]} account</div>
-
-        <Footerbar />
-    </div>
+    </View>
 
 const mapStateToProps = (state) => {
     const currency = state.settings.currencies.accounts

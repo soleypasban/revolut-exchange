@@ -1,15 +1,13 @@
 import React from 'react';
-import { PageHeader } from '../components/PageHeader';
 import { ActionButton } from '../components/ActionButton';
 import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { RateBox } from '../components/RateBox';
 import { SwapRate } from '../components/SwapRate';
 import { CurrencySelector } from '../components/CurrencySelector';
-import { browseTo } from '../dictionary/History';
-import { Footerbar } from '../components/Footerbar';
+import { View } from '../components/View'
 
-const ExchangeWidget = ({ 
-    
+const ExchangeWidget = ({
+
     notEnoughBalance,
     balances,
     convert,
@@ -26,8 +24,7 @@ const ExchangeWidget = ({
     onSelectCurrency
 
 }) =>
-    <div className='r-view'>
-        <PageHeader label='Exchange' onClose={() => browseTo('/accounts')} />
+    <View title='Exchange' >
         <div className='r-exchange-top-wrapper'>
             <div className='r-exchange-from-container'>
                 <CurrencyInputBox notEnoughBalance={notEnoughBalance} balance={balances.from} currency={convert.from} sign='-' value={amounts.from} onChange={onFromChange} onChangeCurrency={onChangeCurrencyFrom} />
@@ -46,9 +43,7 @@ const ExchangeWidget = ({
                 <ActionButton disabled={notEnoughBalance || fromEmpty} label='Exchange' onClick={exchangeMoney} />
             </div>
         </div>
-
-        <Footerbar />
         {showSelector && <CurrencySelector selected={showSelector.selected} onSelectCurrency={onSelectCurrency} />}
-    </div>
+    </View>
 
 export { ExchangeWidget };

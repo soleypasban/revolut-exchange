@@ -1,18 +1,13 @@
 import React from 'react';
-import { browseTo } from '../dictionary/History'
-import { PageHeader } from '../components/PageHeader';
 import soleyPicture from '../assets/soley.jpg';
-import { Footerbar } from '../components/Footerbar';
+import { View } from '../components/View'
 
 const AboutView = () =>
-    <div className='r-view'>
-        <PageHeader label='About' onClose={() => browseTo('/accounts')} />
+    <View title='About'>
         <div className='r-about-gradient' />
         <img className='r-about-icon' src={soleyPicture} alt='' />
         <div className='r-about-name'>Soley Pasban</div>
         <div className='r-about-email'>pasban110@gmail.com</div>
-
-        <Footerbar />
-    </div>
+    </View>
 
 export { AboutView };

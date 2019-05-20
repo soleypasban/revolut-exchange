@@ -2,14 +2,13 @@ import React from 'react';
 import { BalancesActionController } from '../controllers/BalancesActionController';
 import { TransactionsListController } from '../controllers/TransactionsListController';
 import { AccountSelector } from '../components/AccountSelector';
-import { Footerbar } from '../components/Footerbar';
+import { View } from '../components/View'
 
 const AccountsView = () =>
-    <div className='r-view'>
+    <View>
         <AccountSelector />
         <BalancesActionController />
         <TransactionsListController />
-        <Footerbar />
-    </div>
+    </View>
 
 export { AccountsView };

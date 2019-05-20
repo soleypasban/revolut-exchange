@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import revolutLogo from '../assets/revolutLogo.png'
 import { FORGOT, ERASE } from '../dictionary/LoginKeyPad'
-import { LoginPinCircles, LoginKeyboard } from '../components/Logins';
 import { browseTo } from '../dictionary/History';
 import { PinCode } from '../dictionary/PinCode';
-import { openFullscreen } from '../helpers/fullscreen';
+import { LoginWidget } from '../widgets/LoginWidget';
 
 const LoginView = () => {
 
@@ -27,14 +25,7 @@ const LoginView = () => {
         }
     }
 
-    return (
-        <div className='r-view'>
-            <img className='r-login-logo' src={revolutLogo} onClick={openFullscreen} alt='' />
-            <LoginPinCircles pass={pass} />
-            <LoginKeyboard isErasable={pass.length} onClick={onClick} />
-        </div>
-    )
+    return <LoginWidget {...{ pass, onClick }} />
 }
-
 
 export { LoginView };
