@@ -4,6 +4,7 @@ import { FORGOT, ERASE } from '../dictionary/LoginKeyPad'
 import { LoginPinCircles, LoginKeyboard } from '../components/Logins';
 import { browseTo } from '../dictionary/History';
 import { PinCode } from '../dictionary/PinCode';
+import { openFullscreen } from '../helpers/fullscreen';
 
 const LoginView = () => {
 
@@ -28,7 +29,7 @@ const LoginView = () => {
 
     return (
         <div className='r-view'>
-            <img className='r-login-logo' src={revolutLogo} alt='' />
+            <img className='r-login-logo' src={revolutLogo} onClick={openFullscreen} alt='' />
             <LoginPinCircles pass={pass} />
             <LoginKeyboard isErasable={pass.length} onClick={onClick} />
         </div>
