@@ -33,7 +33,6 @@ let AddMoneyWidget = ({
                 <ActionButton disabled={!(Math.abs(amount) > 0)} label='Add money' onClick={addMoneyAndGoBack} />
             </div>
         </div>
-        <Footerbar />
         {showSelector && <CurrencySelector selected={showSelector.selected} onSelectCurrency={onSelectCurrency} />}
     </View>
 
