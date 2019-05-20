@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './views/App';
+import { App } from './App';
 import { store } from './store'
 import { Provider } from 'react-redux'
-import * as serviceWorker from './serviceWorker';
-import { getEuropa } from './server';
-
 import { updateExchangeRates } from './actions/settings';
 import { RATES_FETCH_INTERVAL } from './dictionary/Currencies';
-import './styles/index.css';
 import { fullScreenIfSupported } from './helpers/fullscreen';
+import { getEuropa } from './server';
+import * as serviceWorker from './serviceWorker';
+import './styles/index.css';
 
 const fetchRates = () => {
     getEuropa(rates => store.dispatch(updateExchangeRates(rates)))
