@@ -26,6 +26,8 @@ const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, on
                         isAllowed={isNumberValid}
                         onFocus={() => setActive(true)}
                         onBlur={() => setActive(false)}
+                        pattern="[0-9]*"
+                        inputmode="numeric"
                     />
                 </span>
             </div>
