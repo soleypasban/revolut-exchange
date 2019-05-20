@@ -6,19 +6,16 @@ import { Flags } from '../images/Flags';
 import { Footerbar } from '../components/Footerbar';
 import { browseTo } from '../dictionary/History';
 
-let DetailsView = ({ currency, amount }) => {
-    return (
-        <div className='r-view'>
-            <PageHeader label='Account details' onClose={() => browseTo('/accounts')} />
-            <div className='r-details-gradient' />
-            <img className='r-details-flag-icon' src={Flags[currency]} alt='' />
-            <div className='r-details-balance-amount'>{CurrencySign[currency]}{amount}</div>
-            <div className='r-details-account-name'>{CurrencyName[currency]} account</div>
+let DetailsView = ({ currency, amount }) =>
+    <div className='r-view'>
+        <PageHeader label='Account details' onClose={() => browseTo('/accounts')} />
+        <div className='r-details-gradient' />
+        <img className='r-details-flag-icon' src={Flags[currency]} alt='' />
+        <div className='r-details-balance-amount'>{CurrencySign[currency]}{amount}</div>
+        <div className='r-details-account-name'>{CurrencyName[currency]} account</div>
 
-            <Footerbar />
-        </div>
-    )
-}
+        <Footerbar />
+    </div>
 
 const mapStateToProps = (state) => {
     const currency = state.settings.currencies.accounts
