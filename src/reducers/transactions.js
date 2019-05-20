@@ -11,8 +11,8 @@ const sample = {
 }
 
 const initialState = {
-    EUR: [sample, sample, sample, sample, sample, sample, sample, sample ]
-    // EUR: []
+    // EUR: [sample, sample, sample, sample, sample, sample, sample, sample ]
+    EUR: []
 }
 
 export const transactions = (state = initialState, action) => {
