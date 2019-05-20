@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import revolutLogo from '../assets/revolutLogo.png'
 import { FORGOT, ERASE } from '../dictionary/LoginKeyPad'
 import { LoginPinCircles, LoginKeyboard } from '../components/Logins';
+import { browseTo } from '../dictionary/History';
 
-const LoginView = ({ history }) => {
+const LoginView = () => {
 
     const [pass, setPasscode] = useState('');
 
@@ -11,12 +12,12 @@ const LoginView = ({ history }) => {
         if (label === ERASE) {
             setPasscode('')
         } else if (label === FORGOT) {
-            alert('FORGOT')
+            browseTo('/forgot')
         } else {
             const newPasscode = `${pass}${label}`
             setPasscode(newPasscode)
             if (newPasscode.length === 4) {
-                history.push('/accounts')
+                browseTo('/accounts')
             }
         }
     }
