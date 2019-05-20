@@ -52,4 +52,5 @@ body {
 @import 'accounts.css';
 @import 'exchange.css';
 @import 'add-view.css';
-@import 'detains-view.css';
+@import 'details-view.css';
+@import 'about-view.css';

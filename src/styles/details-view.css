@@ -19,4 +19,5 @@
 .r-details-account-name {
     font-size: 1.4rem;
     color: #777777;
+    flex: 1;
 }

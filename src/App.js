@@ -7,6 +7,7 @@ import { ExchangeView } from './views/ExchangeView';
 import { DetailsView } from './views/DetailsView';
 import { AddMoneyView } from './views/AddMoneyView';
 import { Footerbar } from './components/Footerbar';
+import { AboutView } from './views/AboutView';
 
 const App = ({ location }) =>
   <div className="r-app noselect">
@@ -15,6 +16,7 @@ const App = ({ location }) =>
       <Route path="/accounts" component={AccountsView} />
       <Route path="/exchange" component={ExchangeView} />
       <Route path="/details" component={DetailsView} />
+      <Route path="/about" component={AboutView} />
       <Route path="/add" component={AddMoneyView} />
     </Router>
   </div>

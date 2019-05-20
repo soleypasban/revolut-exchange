@@ -1,0 +1,27 @@
+.r-about-gradient {
+    height: 18rem;
+    background: linear-gradient(#ffffff, #eeeeee);
+    width: 100%;
+}
+
+.r-about-icon {
+    margin-top: -9rem;
+    margin-bottom: 1rem;
+    z-index: 1;
+    width: 18rem;
+    border-radius: 50%;
+    border: 2px solid #f7f7f7;
+}
+
+.r-about-name {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.r-about-email {
+    font-size: 1.4rem;
+    color: #777777;
+    flex: 1;
+}

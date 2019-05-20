@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { PageHeader } from '../components/PageHeader';
 import { CurrencyName, CurrencySign } from '../dictionary/Currencies'
 import { Flags } from '../images/Flags';
+import { Footerbar } from '../components/Footerbar';
 
 let DetailsView = ({ history, currency, amount }) => {
     return (
@@ -12,6 +13,8 @@ let DetailsView = ({ history, currency, amount }) => {
             <img className='r-details-flag-icon' src={Flags[currency]} alt='' />
             <div className='r-details-balance-amount'>{CurrencySign[currency]}{amount}</div>
             <div className='r-details-account-name'>{CurrencyName[currency]} account</div>
+
+            <Footerbar />
         </div>
     )
 }
