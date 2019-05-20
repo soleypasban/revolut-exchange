@@ -2,9 +2,10 @@
     display: inline-flex;
     align-items: center;
     flex-direction: column;
-    cursor: default;
     margin: 0 auto;
     cursor: pointer;
+    width: 8rem;
+    white-space: nowrap;
 }
 
 .r-round-button-icon {
