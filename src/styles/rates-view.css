@@ -1,0 +1,43 @@
+.r-rates-title {
+    font-size: 1.4rem;
+    line-height: 5rem;
+    flex-shrink: 0;
+    width: 100%;
+    padding: 0 2.5rem;
+    background: #f7f7f7;
+}
+
+.r-rates-from {
+    width: 100%;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.r-rates-container {
+    flex: 1;
+    width: 100%;
+}
+
+.r-rate-icon {
+    width: 3rem;
+    margin-right: 0.75rem;
+}
+
+.r-rate-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.r-rate-label {
+    display: flex;
+    align-items: center;
+    line-height: 5rem;
+}
+
+.r-rate-row:hover {
+    color: #000000;
+    background: #fafafa;
+}
