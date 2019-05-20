@@ -20,6 +20,12 @@ body {
     border: none;
 }
 
+*:focus,
+*:active {
+    outline: none;
+    border: none;
+}
+
 ::-webkit-scrollbar {
     width: 11px;
     height: 11px;
