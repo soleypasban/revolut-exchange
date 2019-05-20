@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://soley-revolut.herokuapp.com",
+  "homepage": "https://soley-revolut.herokuapp.com",
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
     "react": "^16.8.6",
@@ -37,5 +37,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.1",
+    "sinon": "^7.3.2"
   }
 }
