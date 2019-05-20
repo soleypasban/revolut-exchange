@@ -6,18 +6,20 @@
 .r-app {
     display: flex;
     flex-direction: column;
-    width: 38rem;
-    height: 100%;
+    height: 100vh;
     margin: 0 auto;
-    background: #ffffff;
+    align-items: center;
+    justify-content: center;
 }
 
 .r-view {
     display: flex;
+    position: relative;
     align-items: center;
     flex-direction: column;
-    height: 100%;
-    position: relative;
+    width: 36rem;
+    height: 64rem;
+    background: #ffffff;
 }
 
 .noselect {
