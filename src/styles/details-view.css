@@ -6,14 +6,16 @@
 
 .r-details-flag-icon {
     margin-top: -64px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     z-index: 1;
+    border-radius: 50%;
+    border: 2px solid #f3f3f3;
 }
 
 .r-details-balance-amount {
     font-size: 5rem;
     font-weight: 700;
-    margin: 2rem 0;
+    margin-bottom: 1rem;
 }
 
 .r-details-account-name {
