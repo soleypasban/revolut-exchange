@@ -5,7 +5,7 @@ import { arrowDown } from '../images/Icons'
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
 
 
-const CurrencyInputBox = ({ notEnoughBalance, currency, balance, value, onChangeCurrency, onChange }) => {
+const CurrencyInputBox = ({ notEnoughBalance, disabled, currency, balance, value, onChangeCurrency, onChange }) => {
     const [active, setActive] = useState(false);
     const setAmounntValue = ({ value }) => active && onChange && onChange(value)
     const isNumberValid = input => Math.abs(input.floatValue || 0) < MAX_INPUT_VALUE
@@ -28,6 +28,7 @@ const CurrencyInputBox = ({ notEnoughBalance, currency, balance, value, onChange
                         pattern="[0-9]*"
                         inputMode="numeric"
                         allowEmptyFormatting={true}
+                        disabled={disabled}
                     />
                 </span>
                 {/* {sign && <span className='r-currency-input-sign'>{sign}</span>} */}

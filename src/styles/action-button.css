@@ -20,6 +20,7 @@
 .r-action-button-disabled,
 .r-action-button-disabled:hover {
     opacity: 0.3;
+    cursor: default;
 }
 
 .r-action-button-text {

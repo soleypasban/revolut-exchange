@@ -4,7 +4,7 @@ import { CurrencySign } from '../dictionary/Currencies'
 
 const RateBox = ({ from, to, rate }) =>
     <div className='r-rate-box-container'>
-        {stockArrow} {CurrencySign[from]}1&nbsp;=&nbsp;{CurrencySign[to]}{(rate).toFixed(4)}
+        {stockArrow} {CurrencySign[from]}{rate && 1}&nbsp;=&nbsp;{CurrencySign[to]}{(rate).toFixed(4)}
     </div>
 
 export { RateBox };

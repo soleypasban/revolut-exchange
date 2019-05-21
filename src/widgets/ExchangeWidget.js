@@ -21,13 +21,14 @@ const ExchangeWidget = ({
     fromEmpty,
     exchangeMoney,
     showSelector,
-    onSelectCurrency
+    onSelectCurrency,
+    inputsDisabled
 
 }) =>
     <View title='Exchange' >
         <div className='r-exchange-top-wrapper'>
             <div className='r-exchange-from-container'>
-                <CurrencyInputBox notEnoughBalance={notEnoughBalance} balance={balances.from} currency={convert.from} sign='-' value={amounts.from} onChange={onFromChange} onChangeCurrency={onChangeCurrencyFrom} />
+                <CurrencyInputBox disabled={inputsDisabled} notEnoughBalance={notEnoughBalance} balance={balances.from} currency={convert.from} sign='-' value={amounts.from} onChange={onFromChange} onChangeCurrency={onChangeCurrencyFrom} />
             </div>
         </div>
         <div className='r-exchange-bottom-wrapper'>
@@ -37,10 +38,10 @@ const ExchangeWidget = ({
                 <span />
             </div>
             <div className='r-exchange-to-container'>
-                <CurrencyInputBox balance={balances.to} currency={convert.to} sign='+' value={amounts.to} onChange={onToChange} onChangeCurrency={onChangeCurrencyTo} />
+                <CurrencyInputBox disabled={inputsDisabled} balance={balances.to} currency={convert.to} sign='+' value={amounts.to} onChange={onToChange} onChangeCurrency={onChangeCurrencyTo} />
             </div>
             <div className='r-exchange-button-container'>
-                <ActionButton disabled={notEnoughBalance || fromEmpty} label='Exchange' onClick={exchangeMoney} />
+                <ActionButton disabled={notEnoughBalance || fromEmpty || inputsDisabled} label='Exchange' onClick={exchangeMoney} />
             </div>
         </div>
         {showSelector && <CurrencySelector selected={showSelector.selected} onSelectCurrency={onSelectCurrency} />}

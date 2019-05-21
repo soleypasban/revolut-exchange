@@ -5,6 +5,7 @@ import { setActiveCurrencyTo, setCompleteMessageTo } from '../actions/settings';
 import { browseTo } from '../dictionary/History';
 import { ExchangeWidget } from '../widgets/ExchangeWidget';
 import { convertCurrencies } from '../helpers/convertCurrencies';
+import { getFormattedNumber } from '../helpers/numbers';
 
 let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
@@ -21,12 +22,12 @@ let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
 
     const onFromChange = (value) => {
         const from = Math.min(value, MAX_INPUT_VALUE)
-        setAmounts({ from, to: from * exchangeRate })
+        setAmounts({ from, to: getFormattedNumber(from * exchangeRate) })
     }
 
     const onToChange = (value) => {
         const to = Math.min(value, MAX_INPUT_VALUE)
-        setAmounts({ to, from: to * exchangeRate })
+        setAmounts({ to, from: getFormattedNumber(to * exchangeRate) })
     }
 
     const swapCurrencies = () => {
@@ -48,10 +49,11 @@ let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
         setShowSelectorFor(null)
     }
 
-    const fromEmpty = !(Math.abs(amounts.from) > 0)
+    const exchangeRate = rates ? (Number(rates[convert.from]) / Number(rates[convert.to])) : 0
+    const fromEmpty = !(Math.abs(amounts.from) > 0) || (exchangeRate === 0)
     const balances = { from: (balance[convert.from] || 0), to: (balance[convert.to] || 0) }
-    const exchangeRate = rates ? (Number(rates[convert.from]) / Number(rates[convert.to])) : 1
     const notEnoughBalance = (Number(balances.from) < Number(Math.abs(amounts.from)))
+    const inputsDisabled = exchangeRate === 0
 
     const exchangeMoney = () => {
         const { tFrom, tTo } = convertCurrencies(dispatch, amounts, convert)
@@ -77,7 +79,8 @@ let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
         fromEmpty,
         exchangeMoney,
         showSelector,
-        onSelectCurrency
+        onSelectCurrency,
+        inputsDisabled
     }
 
     return <ExchangeWidget  {...props} />
