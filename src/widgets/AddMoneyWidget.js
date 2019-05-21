@@ -2,7 +2,6 @@ import React from 'react';
 import { ActionButton } from '../components/ActionButton';
 import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { CurrencySelector } from '../components/CurrencySelector';
-import { Footerbar } from '../components/Footerbar';
 import { View } from '../components/View'
 
 let AddMoneyWidget = ({
