@@ -19,6 +19,7 @@ let AddMoneyView = ({ dispatch, balance, currency }) => {
         }))
         browseTo('/complete')
     }
+
     const onChangeCurrency = () => {
         setShowSelectorFor({ selected: account })
     }

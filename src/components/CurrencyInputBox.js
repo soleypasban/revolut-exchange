@@ -3,10 +3,9 @@ import NumberFormat from 'react-number-format';
 import { CurrencySign } from '../dictionary/Currencies'
 import { arrowDown } from '../images/Icons'
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
-import { getFormattedNumber } from '../helpers/numbers';
 
 
-const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, onChangeCurrency, onChange }) => {
+const CurrencyInputBox = ({ notEnoughBalance, currency, balance, value, onChangeCurrency, onChange }) => {
     const [active, setActive] = useState(false);
     const setAmounntValue = ({ value }) => active && onChange && onChange(value)
     const isNumberValid = input => Math.abs(input.floatValue || 0) < MAX_INPUT_VALUE
@@ -18,9 +17,8 @@ const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, on
                     <NumberFormat
                         className='r-currency-input-amount-box'
                         onValueChange={setAmounntValue}
-                        value={value}
+                        value={value === 0 ? '' : value}
                         thousandSeparator={true}
-                        prefix={sign}
                         placeholder="0"
                         decimalScale={2}
                         allowNegative={false}
@@ -32,6 +30,7 @@ const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, on
                         allowEmptyFormatting={true}
                     />
                 </span>
+                {/* {sign && <span className='r-currency-input-sign'>{sign}</span>} */}
             </div>
 
             <span className={`r-currency-input-balance ${notEnoughBalance ? 'r-currency-input-balance-below' : ''}`}>Balance: {CurrencySign[currency]}
