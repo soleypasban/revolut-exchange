@@ -3,6 +3,7 @@ import NumberFormat from 'react-number-format';
 import { CurrencySign } from '../dictionary/Currencies'
 import { arrowDown } from '../images/Icons'
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
+import { getFormattedNumber } from '../helpers/numbers';
 
 
 const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, onChangeCurrency, onChange }) => {
@@ -17,7 +18,7 @@ const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, on
                     <NumberFormat
                         className='r-currency-input-amount-box'
                         onValueChange={setAmounntValue}
-                        value={value === 0 ? '' : value}
+                        value={value === 0 ? '' : getFormattedNumber(value)}
                         thousandSeparator={true}
                         prefix={sign}
                         placeholder="0"
