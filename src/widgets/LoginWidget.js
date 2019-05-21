@@ -6,7 +6,9 @@ import { View } from '../components/View'
 
 const LoginWidget = ({ pass, onClick }) =>
     <View noFooter>
-        <img className='r-login-logo' src={revolutLogo} onClick={openFullscreen} alt='' />
+        <div className='r-login-logo-container'>
+            <img className='r-login-logo' src={revolutLogo} onClick={openFullscreen} alt='' />
+        </div>
         <LoginPinCircles pass={pass} />
         <LoginKeyboard isErasable={pass.length} onClick={onClick} />
     </View>

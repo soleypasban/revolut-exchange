@@ -18,9 +18,11 @@ const LoginView = () => {
             setPasscode(newPasscode)
             if (newPasscode.length === 4) {
                 if (Number(newPasscode) === Number(PinCode)) {
+                    setPasscode('')
                     browseTo('/accounts')
+                } else {
+                    setTimeout(() => setPasscode(''), 500)
                 }
-                setTimeout(() => setPasscode(''), 500)
             }
         }
     }
