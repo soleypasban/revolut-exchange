@@ -7,5 +7,5 @@ export const separateNumberParts = amount => {
 
 export const getFormattedNumber = value => {
     const num = value.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
-    return Number(num).toFixed(2)
+    return Number(Math.abs(num).toFixed(2))
 }
