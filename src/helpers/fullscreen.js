@@ -11,7 +11,4 @@ export const openFullscreen = () => {
     }
 }
 
-export const fullScreenIfSupported = () => {
-    const showFullScreen = () => (typeof window.orientation !== 'undefined') && openFullscreen()
-    document.addEventListener('DOMContentLoaded', showFullScreen, false);
-}
+export const fullScreenIfSupported = () => (typeof window.orientation !== 'undefined') && openFullscreen()

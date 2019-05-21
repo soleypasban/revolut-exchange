@@ -5,7 +5,6 @@ import { store } from './store'
 import { Provider } from 'react-redux'
 import { updateExchangeRates } from './actions/settings';
 import { RATES_FETCH_INTERVAL } from './dictionary/Currencies';
-import { fullScreenIfSupported } from './helpers/fullscreen';
 import { getEuropa } from './server';
 import * as serviceWorker from './serviceWorker';
 import './styles/index.css';
@@ -16,7 +15,6 @@ const fetchRates = () => {
 }
 
 fetchRates()
-fullScreenIfSupported()
 
 ReactDOM.render(
     <Provider store={store}>

@@ -5,7 +5,7 @@ import { openFullscreen } from '../helpers/fullscreen';
 import { View } from '../components/View'
 
 const LoginWidget = ({ pass, onClick }) =>
-    <View noFooter>
+    <View noFooter /* onClick={() => fullScreenIfSupported()} */>
         <div className='r-login-logo-container'>
             <img className='r-login-logo' src={revolutLogo} onClick={openFullscreen} alt='' />
         </div>
