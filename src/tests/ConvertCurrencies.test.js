@@ -10,22 +10,24 @@ const convert = { from: 'EUR', to: 'USD' }
 
 const expectedFrom = {
     sign: '-',
-    amount: '1.00',
+    amount: 1,
     currency: 'EUR',
     icon: 'transaction',
     description: `Exchanged to USD`,
     date: 'Today',
-    info: `+${CurrencySign['USD']}1.10`
+    value: `${CurrencySign['USD']}1.1`,
+    info: `+${CurrencySign['USD']}1.1`
 }
 
 const expectedTo = {
     sign: '+',
-    amount: '1.10',
+    amount: 1.1,
     currency: 'USD',
     icon: 'transaction',
     description: `Exchanged from EUR`,
     date: 'Today',
-    info: `-${CurrencySign['EUR']}1.00`
+    value: `${CurrencySign['EUR']}1`,
+    info: `-${CurrencySign['EUR']}1`
 }
 
 const { tFrom, tTo } = getTransactions(amounts, convert)
