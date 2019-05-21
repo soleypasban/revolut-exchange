@@ -18,7 +18,7 @@ const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, on
                     <NumberFormat
                         className='r-currency-input-amount-box'
                         onValueChange={setAmounntValue}
-                        value={value === 0 ? '' : getFormattedNumber(value)}
+                        value={value}
                         thousandSeparator={true}
                         prefix={sign}
                         placeholder="0"
@@ -29,6 +29,7 @@ const CurrencyInputBox = ({ notEnoughBalance, currency, balance, sign, value, on
                         onBlur={() => setActive(false)}
                         pattern="[0-9]*"
                         inputMode="numeric"
+                        allowEmptyFormatting={true}
                     />
                 </span>
             </div>

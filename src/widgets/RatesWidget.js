@@ -5,6 +5,7 @@ import { CurrencyInputBox } from '../components/CurrencyInputBox';
 import { CurrencySelector } from '../components/CurrencySelector';
 import NumberFormat from 'react-number-format';
 import { View } from '../components/View'
+import { getFormattedNumber } from '../helpers/numbers';
 
 let RatesWidget = ({
     account,
@@ -24,7 +25,6 @@ let RatesWidget = ({
             <CurrencyInputBox
                 balance={currentBalance}
                 currency={account}
-                sign='+'
                 value={amount}
                 onChange={setAmount}
                 onChangeCurrency={onChangeCurrency}
@@ -44,7 +44,7 @@ export const AccountRow = ({ label, exchangeValue }) =>
         </span>
         <span className='r-rate-current'>
             <NumberFormat
-                value={exchangeValue || 0}
+                value={getFormattedNumber(exchangeValue) || 0}
                 thousandSeparator={true}
                 displayType='text'
                 decimalScale={2}

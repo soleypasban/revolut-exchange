@@ -6,6 +6,8 @@ export const separateNumberParts = amount => {
 }
 
 export const getFormattedNumber = value => {
-    const num = value.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
-    return Number(Math.abs(num).toFixed(2))
+    if (Number(value || 0) === 0) return ''
+    const num = (0 + value).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+    const ret = Number(Math.abs(num).toFixed(2))
+    return ret
 }
