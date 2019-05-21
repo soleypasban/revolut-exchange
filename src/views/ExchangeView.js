@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
-import { setActiveCurrencyTo } from '../actions/settings';
+import { setActiveCurrencyTo, setCompleteMessageTo } from '../actions/settings';
 import { browseTo } from '../dictionary/History';
 import { ExchangeWidget } from '../widgets/ExchangeWidget';
 import { convertCurrencies } from '../helpers/convertCurrencies';
@@ -54,9 +54,13 @@ let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
     const notEnoughBalance = (Number(balances.from) < Number(Math.abs(amounts.from)))
 
     const exchangeMoney = () => {
-        convertCurrencies(dispatch, amounts, convert)
-        dispatch(setActiveCurrencyTo(convert.to))
-        browseTo('/accounts')
+        const { tFrom, tTo } = convertCurrencies(dispatch, amounts, convert)
+        dispatch(setActiveCurrencyTo(convert.from))
+        dispatch(setCompleteMessageTo({
+            icon: 'succeed',
+            description: `You exchanged ${tTo.value} to ${tFrom.value}`
+        }))
+        browseTo('/complete')
     }
 
     const props = {

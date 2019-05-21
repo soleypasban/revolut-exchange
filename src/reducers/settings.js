@@ -1,4 +1,4 @@
-import { ACTIVE_CURRENCY, ACTIVE_EXHCANGES, ACTIVE_ADD_CURRENCY, UPDATE_RATES } from "../actions/settings";
+import { ACTIVE_CURRENCY, ACTIVE_EXHCANGES, ACTIVE_ADD_CURRENCY, UPDATE_RATES, SET_COMPLETE_MESSAGE } from "../actions/settings";
 
 const initialState = {
     currencies: {
@@ -7,7 +7,8 @@ const initialState = {
         add: 'EUR'
     },
     exchangeRate: null,
-    rates: null
+    rates: null,
+    complete: null
 }
 
 export const settings = (state = initialState, action) => {
@@ -31,6 +32,10 @@ export const settings = (state = initialState, action) => {
 
         case UPDATE_RATES:
             return { ...state, rates: { ...payload, EUR: 1 } }
+
+        case SET_COMPLETE_MESSAGE: {
+            return { ...state, complete: payload }
+        }
 
         default:
             return state;

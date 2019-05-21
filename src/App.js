@@ -9,6 +9,7 @@ import { AddMoneyView } from './views/AddMoneyView';
 import { AboutView } from './views/AboutView';
 import { RatesView } from './views/RatesView';
 import { ForgotView } from './views/ForgotView';
+import { CompleteView } from './views/CompleteView';
 
 const App = () =>
   <div className="r-app noselect">
@@ -21,6 +22,7 @@ const App = () =>
       <Route path="/about" component={AboutView} />
       <Route path="/forgot" component={ForgotView} />
       <Route path="/add" component={AddMoneyView} />
+      <Route path="/complete" component={CompleteView} />
     </Router>
   </div>
 

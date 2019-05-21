@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { browseTo } from '../dictionary/History';
 import { AddMoneyWidget } from '../widgets/AddMoneyWidget';
 import { addMoneyToAccount } from '../helpers/addMoneyToAccount';
+import { setCompleteMessageTo } from '../actions/settings';
 
 let AddMoneyView = ({ dispatch, balance, currency }) => {
     const [showSelector, setShowSelectorFor] = useState(null);
@@ -11,8 +12,12 @@ let AddMoneyView = ({ dispatch, balance, currency }) => {
     const currentBalance = (balance[account] || 0)
 
     const addMoneyAndGoBack = () => {
-        addMoneyToAccount(dispatch, account, amount)
-        browseTo('/accounts')
+        const { transaction } = addMoneyToAccount(dispatch, account, amount)
+        dispatch(setCompleteMessageTo({
+            icon: 'succeed',
+            description: `You added ${transaction.value}`
+        }))
+        browseTo('/complete')
     }
     const onChangeCurrency = () => {
         setShowSelectorFor({ selected: account })
