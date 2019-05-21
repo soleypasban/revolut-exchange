@@ -5,4 +5,7 @@ export const separateNumberParts = amount => {
     return parts
 }
 
-export const getValue = value => Math.abs((Number(value || 0)).toFixed(2))
+export const getValue = value => {
+    const num = value.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+    return Number(num).toFixed(2)
+}
