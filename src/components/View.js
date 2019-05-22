@@ -7,7 +7,7 @@ const View = ({ title, backTo, children, noFooter, ...rest }) =>
     <div className='r-view' {...rest}>
         {title && <PageHeader title={title} onClose={() => browseTo(backTo || '/accounts')} />}
         {children}
-        {!noFooter && <Footerbar />}
+        {!noFooter && !title && <Footerbar />}
     </div>
 
 export { View };
