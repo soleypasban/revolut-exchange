@@ -14,6 +14,7 @@ export const balance = (state = initialState, action) => {
 
         case REMOVE_MONEY: {
             const newAmount = Number(state[payload.currency] || 0) - getValue(payload.amount)
+            if (newAmount < 0) return { ...state };
             return { ...state, [payload.currency]: newAmount }
         }
 
