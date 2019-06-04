@@ -4,7 +4,7 @@ import { App } from './App';
 import { store } from './store'
 import { Provider } from 'react-redux'
 import { updateExchangeRates } from './actions/settings';
-import { RATES_FETCH_INTERVAL } from './dictionary/Currencies';
+import { RATES_FETCH_INTERVAL } from './dictionary/Amounts';
 import { getEuropa } from './server';
 import * as serviceWorker from './serviceWorker';
 import './styles/index.css';

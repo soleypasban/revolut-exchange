@@ -1,1 +1,2 @@
 export const MAX_INPUT_VALUE = 999999
+export const RATES_FETCH_INTERVAL = 10 * 1000

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState  } from 'react';
+// import  { useEffect } from 'react';
+// import { getEuropa } from '../server';
 import { connect } from 'react-redux';
 import { MAX_INPUT_VALUE } from '../dictionary/Amounts';
 import { setActiveCurrencyTo, setCompleteMessageTo } from '../actions/settings';
@@ -82,6 +84,30 @@ let ExchangeView = ({ exchange, balance, rates, dispatch }) => {
         onSelectCurrency,
         inputsDisabled
     }
+
+    /*
+    useEffect(() => {
+        let fetchRateIntervalId = 0
+
+        const fetchRates = () => {
+            getEuropa(rates => {
+                // store.dispatch(updateExchangeRates(rates))
+                console.log('Fetching rate...', rates)
+                // setRates(rates)
+            }
+            )
+            fetchRateIntervalId = setTimeout(fetchRates, 2000)
+        }
+
+        fetchRates()
+
+        return () => {
+            clearInterval(fetchRateIntervalId)
+            console.log('clear rate...')
+        }
+
+    }, []);
+    */
 
     return <ExchangeWidget  {...props} />
 }

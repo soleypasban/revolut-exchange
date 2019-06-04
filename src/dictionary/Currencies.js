@@ -13,5 +13,3 @@ export const CurrencyName = {
     TRY: 'Turkey Lira',
     INR: 'Indian Rupees'
 }
-
-export const RATES_FETCH_INTERVAL = 10 * 1000
