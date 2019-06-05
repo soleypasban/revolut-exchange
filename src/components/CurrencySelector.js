@@ -1,21 +1,29 @@
-import React  from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { CurrencySign, CurrencyName } from '../dictionary/Currencies'
 import { Flags } from '../images/Flags';
 import { checkIcon } from '../images/Icons';
+import { useSpring, animated, config } from 'react-spring'
 
 let CurrencySelector = ({ selected, balance, onSelectCurrency }) => {
     const list = Object.keys(CurrencyName)
         .map(label => <AccountRow {...{ key: label, label, balance: balance[label], onSelectCurrency, selected }} />)
 
+    const animProps = useSpring({
+        config: { ...config.gentle, clamp: true },
+        position: 'absolute', width: '100%', opacity: 1, marginTop: 0, from: { opacity: 0, marginTop: window.innerHeight }
+    })
+
     return (
         <div className='r-currency-selector-wrapper' onClick={() => onSelectCurrency(null)}>
-            <div className='r-currency-selector-container'>
-                <div className='r-currency-selector-title'>
-                    Choose currency
+            <animated.div style={animProps}>
+                <div className='r-currency-selector-container'>
+                    <div className='r-currency-selector-title'>
+                        Choose currency
                 </div>
-                {list}
-            </div>
+                    {list}
+                </div>
+            </animated.div>
         </div>
     )
 }
